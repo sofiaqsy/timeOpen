@@ -2,12 +2,13 @@
 class UserCategoria {
 
   private $db;
+  private $fecha;
   private $iduser;
-  private $idarea;
-  private $idtype_user;
+  private $idcategoria_cursos;
 
   public function __construct() {
     $this->db = new Conexion();
+    $this->fecha = $fecha_reg = date('d/m/Y', time());
   }
 
   private function Errors($url) {
@@ -27,13 +28,6 @@ class UserCategoria {
   }
 
   public function Add() {
-    $this->fecha = $fecha_reg = date('d/m/Y', time());
-    $this->Errors('?view=perfil&error=');
-    $this->db->query("INSERT INTO user_categoria_cursos(fecha,iduser,idcategoria_cursos) VALUES ('$this->fecha','$this->iduser','$this->idcategoria_cursos');");
-    header('location: ?view=perfil&id='.$this->iduser.'&success=true');
-
-  }
-  public function Config() {
     $this->Errors('?view=perfil&error=');
     $this->db->query("INSERT INTO user_categoria_cursos(fecha,iduser,idcategoria_cursos) VALUES ('$this->fecha','$this->iduser','$this->idcategoria_cursos');");
     header('location: ?view=perfil&id='.$this->iduser.'&success=true');
