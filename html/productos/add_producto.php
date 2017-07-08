@@ -31,10 +31,10 @@
 <div class="row container">
   <div class="pull-right">
     <div class="mbr-navbar__column"><ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-inverse mbr-buttons--active"><li class="mbr-navbar__item">
-         <a class="mbr-buttons__btn btn btn-danger " href="?view=productos">Gestionar Productos</a>
+         <a class="mbr-buttons__btn btn btn-danger " href="?view=servicios">GESTIONAR SERVICIOS</a>
      </li></ul></div>
      <div class="mbr-navbar__column"><ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-inverse mbr-buttons--active"><li class="mbr-navbar__item">
-         <a class="mbr-buttons__btn btn btn-danger active" href="?view=productos&mode=add">Subir Producto</a>
+         <a class="mbr-buttons__btn btn btn-danger active" href="?view=servicios&mode=add">Subir Producto</a>
      </li></ul></div>
 
     </div>
@@ -50,7 +50,7 @@
 
       <div class="row cajas">
         <div class="col-md-12">
-          <form class="form-horizontal" action="?view=productos&mode=add" method="POST" enctype="multipart/form-data">
+          <form class="form-horizontal" action="?view=servicios&mode=add" method="POST" enctype="multipart/form-data">
             <fieldset>
               <div class="form-group">
                 <label for="inputEmail" class="col-lg-2 control-label">Tipo de celular</label>

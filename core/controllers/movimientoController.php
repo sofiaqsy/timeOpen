@@ -12,7 +12,7 @@ if(isset($_SESSION['app_id'])) {
       if($isset_id) {
         $movimiento->ConfirmarVentaCompra();
       }else {
-        header('location: ?view=productos');
+        header('location: ?view=servicios');
   }
     break;
 
@@ -20,7 +20,7 @@ if(isset($_SESSION['app_id'])) {
       if($isset_id) {
         $movimiento->Delete();
       } else {
-        header('location: ?view=productos');
+        header('location: ?view=servicios');
       }
     break;
 

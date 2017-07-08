@@ -34,10 +34,10 @@
 <div class="row container">
   <div class="pull-right">
     <div class="mbr-navbar__column"><ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-inverse mbr-buttons--active"><li class="mbr-navbar__item">
-         <a class="mbr-buttons__btn btn btn-danger " href="?view=productos">Gestionar Productos</a>
+         <a class="mbr-buttons__btn btn btn-danger " href="?view=servicios">GESTIONAR SERVICIOS</a>
      </li></ul></div>
      <div class="mbr-navbar__column"><ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-inverse mbr-buttons--active"><li class="mbr-navbar__item">
-         <a class="mbr-buttons__btn btn btn-danger " href="?view=productos&mode=add">Subir Producto</a>
+         <a class="mbr-buttons__btn btn btn-danger " href="?view=servicios&mode=add">Subir Producto</a>
      </li></ul></div>
 
     </div>
@@ -53,7 +53,7 @@
 
       <div class="row cajas">
         <div class="col-md-12">
-          <form class="form-horizontal" action="?view=productos&mode=edit&id=<?php echo $_GET['id'] ?>" method="POST" enctype="application/x-www-form-urlencoded">
+          <form class="form-horizontal" action="?view=servicios&mode=edit&id=<?php echo $_GET['id'] ?>" method="POST" enctype="application/x-www-form-urlencoded">
             <fieldset>
 
 

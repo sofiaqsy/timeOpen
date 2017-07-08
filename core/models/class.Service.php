@@ -41,26 +41,26 @@ class Productos {
 
 
   public function Add() {
-    $this->Errors('?view=productos&mode=add&error=');
+    $this->Errors('?view=servicios&mode=add&error=');
     $this->db->query("INSERT INTO producto(iduser,EST_PROD,IMA_PROD,PRE_PROD,SIT_PROD,COD_MOD,DES_PROD) VALUES ('$this->iduser','$this->EST_PROD','$this->IMA_PROD','$this->PRE_PROD','$this->SIT_PROD','$this->COD_MOD','$this->DES_PROD');");
     include('core/bin/functions/subir_img.php');
-    header('location: ?view=productos&mode=add&success=true');
+    header('location: ?view=servicios&mode=add&success=true');
 
 
   }
 
   public function Edit() {
     $this->id = $_GET['id'];
-    $this->Errors('?view=productos&mode=edit&id='.$this->id.'&error=');
+    $this->Errors('?view=servicios&mode=edit&id='.$this->id.'&error=');
     $this->db->query("UPDATE producto SET EST_PROD='$this->EST_PROD',IMA_PROD='$this->IMA_PROD',PRE_PROD='$this->PRE_PROD',COD_MOD='$this->COD_MOD' ,DES_PROD='$this->DES_PROD'  WHERE COD_PROD='$this->id';");
-    header('location: ?view=productos&mode=edit&id='.$this->id.'&success=true');
+    header('location: ?view=servicios&mode=edit&id='.$this->id.'&success=true');
   }
 
   public function Delete() {
     $this->id = $_GET['id'];
     $this->db->query("DELETE FROM producto WHERE COD_PROD='$this->id';");
 
-    header('location: ?view=productos');
+    header('location: ?view=servicios');
   }
 
   public function __destruct() {

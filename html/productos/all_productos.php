@@ -19,10 +19,10 @@
 <div class="row container">
    <div class="pull-right">
      <div class="mbr-navbar__column"><ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-inverse mbr-buttons--active"><li class="mbr-navbar__item">
-          <a class="mbr-buttons__btn btn btn-danger active" href="?view=configforos">Gestionar Productos</a>
+          <a class="mbr-buttons__btn btn btn-danger active" href="?view=configforos">GESTIONAR SERVICIOS</a>
       </li></ul></div>
       <div class="mbr-navbar__column"><ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-inverse mbr-buttons--active"><li class="mbr-navbar__item">
-          <a class="mbr-buttons__btn btn btn-danger" href="?view=productos&mode=add">Subir Producto</a>
+          <a class="mbr-buttons__btn btn btn-danger" href="?view=servicios&mode=add">Subir Producto</a>
       </li></ul></div>
 
      </div>
@@ -70,8 +70,8 @@
                      <a  class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
                      <ul class="dropdown-menu">
                       <?php if( $_productos[$id_producto]['SIT_PROD']=='A'):?>
-                       <li><a href="?view=productos&mode=edit&id=<?php echo$_productos[$id_producto]['COD_PROD']?>">Editar</a></li>
-                       <li><a onclick="DeleteItem('¿Está seguro de eliminar este producto?','?view=productos&mode=delete&id=<?php echo $_productos[$id_producto]['COD_PROD']?>')">Eliminar</a></li>
+                       <li><a href="?view=servicios&mode=edit&id=<?php echo$_productos[$id_producto]['COD_PROD']?>">Editar</a></li>
+                       <li><a onclick="DeleteItem('¿Está seguro de eliminar este producto?','?view=servicios&mode=delete&id=<?php echo $_productos[$id_producto]['COD_PROD']?>')">Eliminar</a></li>
                      <?php else :?>
                        <li><a onclick="DeleteItem('¿Está seguro de cancelar la reserva?','?view=movimiento&mode=delete&id=<?php echo $_movimientousuario[$id_producto]['COD_MOV']?>&idprod=<?php echo $_productos[$id_producto]['COD_PROD']?>')">Cancelar la reserva</a></li>
                        <li><a onclick="DeleteItem('FELICITACIONES POR SU VENTA!','?view=movimiento&mode=confirmar&id=<?php echo $_movimientousuario[$id_producto]['COD_PROD']?>&idprod=<?php echo $_productos[$id_producto]['COD_PROD']?>')">REPORTAR COMO VENTA COMPLETADA</a></li>

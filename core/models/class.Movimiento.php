@@ -13,7 +13,7 @@ class Movimiento {
 
   $this->db->query("UPDATE producto SET SIT_PROD='V' WHERE COD_PROD='$this->id_prod';");
   $this->db->query("UPDATE movimiento SET TIP_MOV='Venta' WHERE COD_MOV='$this->id';");
-    header('location: ?view=productos');
+    header('location: ?view=servicios');
   }
 
 
@@ -25,7 +25,7 @@ class Movimiento {
     $this->db->query("DELETE FROM movimiento WHERE COD_MOV='$this->id';");
 
 
-    header('location: ?view=productos');
+    header('location: ?view=servicios');
   }
 
   public function __destruct() {

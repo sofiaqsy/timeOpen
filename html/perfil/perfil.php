@@ -12,10 +12,25 @@
     <div class="container">
     	<div class="row">
 
-        <ol class="breadcrumb">
-          <li><a href="?view=index"><i class="glyphicon glyphicon-home"></i> Perfil</a></li>
-        </ol>
-        <div class="col-md-4">
+        <div class="row container">
+          <?php if(isset($_SESSION['app_id']) && $_users[$_SESSION['app_id']]['idtype_user']>1) : ?>
+          <div class="pull-right">
+            <div class="mbr-navbar__column">
+              <a class="btn btn-primary" href="?view=servicios">GESTIONAR SERVICIOS</a>
+            </div>
+          </div>
+        <?php endif; ?>
+
+          <ol class="breadcrumb">
+              <li><a href="?view=index"><i class="glyphicon glyphicon-home"></i> Home</a>
+              </li>
+              <li><a href="?view=index"> Perfil</a>
+              </li>
+          </ol>
+       </div>
+
+
+        <div class="col-md-4" style="padding-left:0px;">
         	 <div class="well profile">
              <?php if(isset($_GET['success'])) :?>
              <div class="alert alert-info alert-dismissable">
@@ -59,21 +74,22 @@
                             </figure>
                         <p><strong>Usuario: </strong> <?php echo $_users[$id_usuario]['name'].' '.$_users[$id_usuario]['last_name']; ?> </p>
                         <p><strong>Email: </strong> <?php echo $_users[$id_usuario]['email']?> </p>
-                        <p><strong>Universidad: </strong> Read, out with friends, listen to music, draw and learn new things. </p>
-                        <p><strong>Tipo de Usuario</strong> Read, out with friends, listen to music, draw and learn new things. </p>
-                        <p><strong>Area: </strong>  </p>
-                        <p><strong>Categorias: </strong>
-                            <span >Quimica</span>
+                        <p><strong>Universidad: </strong> <?php echo $_users[$id_usuario]['institucion']?> </p>
+                        <p><strong>Tipo de Usuario</strong> <?php echo $_users[$id_usuario]['idtype_user']?> </p>
+                        <p><strong>Area: </strong> <?php echo $_users[$id_usuario]['id_area']?></p>
+                        <p><strong>Categorias : </strong>
+                            <span ><?php echo $_users[$id_usuario]['email']?></span>
                         </p>
                     </div>
                 </div>
                 <div class="col-xs-12 divider text-center">
-                    <div class="col-xs-12 col-sm-6 emphasis">
-                        <button class="btn btn-block btn-color-azul" data-toggle="modal" data-target="#Configurar"><span class="glyphicon glyphicon-wrench"></span>Configurar</button>
+                  <br>
+                    <div class="col-xs-12 col-sm-6 ">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#Configurar"><span class="glyphicon glyphicon-wrench"></span>Configurar</button>
                     </div>
-                    <div class="col-xs-12 col-sm-6 emphasis">
+                    <div class="col-xs-12 col-sm-6 ">
 
-                        <a href="?view=perfil&mode=edit&id=<?php echo $_users[$id_usuario]['iduser']; ?>"><button class="btn btn-color-azul btn-block"><span class="fa fa-plus-circle"></span> Editar Perfil </button></a>
+                        <a href="?view=perfil&mode=edit&id=<?php echo $_users[$id_usuario]['iduser']; ?>"><button class="btn btn-primary"><span class="fa fa-plus-circle"></span> Editar Perfil </button></a>
                     </div>
                 </div>
         	 </div>
@@ -146,6 +162,21 @@
 $(document).ready(function(){
   $('#divarea').hide();
   $('#divcategoria').hide();
+
+  var id=$('#tipe_user').val();
+
+  if(id==2){
+    $('#divarea').show();
+    $('#divcategoria').show();
+
+  }else if(id==1){
+         $('#divarea').hide();
+         $('#divcategoria').hide();
+  }
+
+  var id=$('#area').val();
+  $('#categoria').load('?view=datos&mode=combo&idarea='+id);
+
         $('#tipe_user').change(function() {
           var id=$('#tipe_user').val();
            if(id==2){

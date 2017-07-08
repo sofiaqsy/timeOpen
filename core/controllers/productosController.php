@@ -27,14 +27,14 @@ if(isset($_SESSION['app_id'])) {
           include(HTML_DIR . 'productos/edit_producto.php');
         }
       } else {
-        header('location: ?view=productos');
+        header('location: ?view=servicios');
       }
     break;
     case 'delete':
       if($isset_id) {
         $productos->Delete();
       } else {
-        header('location: ?view=productos');
+        header('location: ?view=servicios');
       }
     break;
     default:

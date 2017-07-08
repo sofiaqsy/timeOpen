@@ -2,13 +2,13 @@
 
 if(isset($_GET['id']) and array_key_exists($_GET['id'],$_users)) {
   $db = new Conexion();
-  require('core/models/class.UserCategoria.php');//llamar al modelo
-  $userCategoria =new UserCategoria();
+  require('core/models/class.Config.php');//llamar al modelo
+  $config =new Config();
   $id_usuario=$_SESSION['app_id'];
   switch (isset($_GET['mode']) ? $_GET['mode'] : null) {
     case 'config':
       if($_POST) {
-        $userCategoria->Add();
+        $config->AddConfig();
       }
     break;
 
