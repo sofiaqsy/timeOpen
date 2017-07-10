@@ -12,11 +12,11 @@
     <div class="container">
     	<div class="row">
 
-        <div class="row container">
+        <div class="row container" style="margin-right:10px;">
           <?php if(isset($_SESSION['app_id']) && $_users[$_SESSION['app_id']]['idtype_user']>1) : ?>
           <div class="pull-right">
             <div class="mbr-navbar__column">
-              <a class="btn btn-primary" href="?view=servicios">GESTIONAR SERVICIOS</a>
+              <a class="btn btn-primary" href="?view=servicios">Gestionar servicios</a>
             </div>
           </div>
         <?php endif; ?>
@@ -31,7 +31,7 @@
 
 
         <div class="col-md-4" style="padding-left:0px;">
-        	 <div class="well profile">
+        	 <div class="well profile" style="width :100%;">
              <?php if(isset($_GET['success'])) :?>
              <div class="alert alert-info alert-dismissable">
                <a class="panel-close close" data-dismiss="alert">×</a>
@@ -82,6 +82,7 @@
                         </p>
                     </div>
                 </div>
+                <?php if($id_usuario==$this_user) :?>
                 <div class="col-xs-12 divider text-center">
                   <br>
                     <div class="col-xs-12 col-sm-6 ">
@@ -92,6 +93,7 @@
                         <a href="?view=perfil&mode=edit&id=<?php echo $_users[$id_usuario]['iduser']; ?>"><button class="btn btn-primary"><span class="fa fa-plus-circle"></span> Editar Perfil </button></a>
                     </div>
                 </div>
+                <?php endif;?>
         	 </div>
     		</div>
         <div class=" col-md-8">

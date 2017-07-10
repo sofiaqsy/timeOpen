@@ -1,5 +1,5 @@
 <?php
-class Productos {
+class servicios {
 
   private $db;
   private $EST_PROD;

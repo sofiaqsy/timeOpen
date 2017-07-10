@@ -1,15 +1,19 @@
 <?php
 
-class Productos {
+class Service{
 
   private $db;
-  private $iduser;
-  private $EST_PROD;
-  private $IMA_PROD;
-  private $PRE_PROD;
-  private $SIT_PROD;
-  private $COD_MOD;
-  private $DES_PROD;
+  private $titulo;
+  private $price;
+  private $horas;
+  private $lugar;
+  private $descripcion;
+  private $detalles;
+  private $imagen;
+  private $situacion;
+  private $cantidad_alumnos;
+  private $id_usuario;
+  private $id_curso;
 
 
   public function __construct() {
@@ -17,22 +21,24 @@ class Productos {
   }
 
   private function Errors($url) {
-
     try {
-          if(empty($_POST['estado'] ) || empty($_POST['precio']) || empty($_POST['descripcion']) || empty($_POST['marca']) || empty($_FILES['imagen']['name']) ) {
+
+          if(empty($_POST['titulo'] ) || empty($_POST['price'] )  || empty($_POST['cantidad_alumnos']) || empty($_POST['curso']) ) {
             throw new Exception(1);
           } else {
-            $this->iduser=$this->db->real_escape_string($_SESSION['app_id']);
-            $this->COD_MOD=$this->db->real_escape_string($_POST['modelo']);
-            $this->EST_PROD=$this->db->real_escape_string($_POST['estado']);
-            $this->IMA_PROD=$this->db->real_escape_string($_FILES['imagen']['name']);
-            $this->PRE_PROD=$this->db->real_escape_string($_POST['precio']);
-            $this->DES_PROD=$this->db->real_escape_string($_POST['descripcion']);
-            $this->SIT_PROD=$this->db->real_escape_string('A');
-
+            $this->id_usuario=$this->db->real_escape_string($_SESSION['app_id']);
+            $this->titulo=$this->db->real_escape_string($_POST['titulo']);
+            $this->lugar=$this->db->real_escape_string($_POST['lugar']);
+            $this->price=$this->db->real_escape_string($_POST['price']);
+            $this->horas=$this->db->real_escape_string($_POST['horas']);
+            $this->descripcion=$this->db->real_escape_string($_POST['descripcion']);
+            $this->detalles=$this->db->real_escape_string($_POST['detalles']);
+            $this->imagen=$this->db->real_escape_string($_FILES['imagen']['name']);
+            $this->situacion=$this->db->real_escape_string('A');
+            $this->cantidad_alumnos=$this->db->real_escape_string($_POST['cantidad_alumnos']);
+            $this->id_curso=$this->db->real_escape_string($_POST['curso']);
           }
         } catch(Exception $error) {
-
           header('location: '.$url .$error->getMessage());
           exit;
         }
@@ -42,8 +48,12 @@ class Productos {
 
   public function Add() {
     $this->Errors('?view=servicios&mode=add&error=');
-    $this->db->query("INSERT INTO producto(iduser,EST_PROD,IMA_PROD,PRE_PROD,SIT_PROD,COD_MOD,DES_PROD) VALUES ('$this->iduser','$this->EST_PROD','$this->IMA_PROD','$this->PRE_PROD','$this->SIT_PROD','$this->COD_MOD','$this->DES_PROD');");
-    include('core/bin/functions/subir_img.php');
+    $this->db->query("INSERT INTO service(titulo,price,horas,lugar,descripcion,detalles,imagen,situacion,cantidad_alumnos,id_usuario,id_curso)
+     VALUES ('$this->titulo','$this->price','$this->horas','$this->lugar','$this->descripcion','$this->detalles','$this->imagen','$this->situacion','$this->cantidad_alumnos','$this->id_usuario','$this->id_curso');");
+     if(empty($this->imagen))
+     {
+       include('core/bin/functions/subir_img.php');
+     }
     header('location: ?view=servicios&mode=add&success=true');
 
 

@@ -24,26 +24,25 @@
     ?>
   <div class="row container">
       <?php
-          if(isset($_SESSION['app_id']) && $_users[$_SESSION['app_id']]['idtype_user']>1) {
+          if(isset($_SESSION['app_id']) && $_users[$_SESSION['app_id']]['idtype_user']>1) :
             echo '
             <div class="pull-right">
               <div class="mbr-navbar__column">
-                <a class="btn btn-primary" href="?view=servicios">GESTIONAR SERVICIOS</a>
+                <a class="btn btn-primary" href="?view=servicios">Gestionar servicios</a>
               </div>
-
             </div>
-            ';  }
+            ';
+          endif;
       ?>
       <ol class="breadcrumb">
         <li><a href="?view=index"><i class="glyphicon glyphicon-home"></i> Inicio</a></li>
       </ol>
-
   </div>
   <div class="fluid-list lead-bloque lead-cursos margin35">
                      <div class="container" >
                        <div class="row" >
                            <div class="col-md-3" >
- <div class="catalogue-list bordertop" >
+ <div class="catalogue-list bordertop" style="fixed:left;" >
    <div class="registroContenedor2" >
      <h3 class="category-name marginLeftRegister2">Filtrar cursos por:</h3>
    </div>
@@ -107,7 +106,7 @@
                                   <p>El contar historias que atrapen la atención, que lleven a la reflexión y nos lleven a la transformación son sumamente necesarios para poder ser un orador que trascienda.</p>
                            </div>
                            <figure>
-                            <center><img src="views/app/images/productos/img2.jpg" style="max-height:150px; max-width:300px;"></center>
+                            <center><img src="views/app/images/servicios/img2.jpg" style="max-height:150px; max-width:300px;"></center>
                           </figure>
                           <div class="fluid-list rated-s">
                               <div class="star-ratings-sprite">

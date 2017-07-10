@@ -2925,7 +2925,7 @@ body{font-family: "Roboto Condensed", sans-serif;font-weight: 300;background: #e
 .header .navbar-brand{padding: 0;min-height: 70px;line-height: 70px;}
 .header .navbar-brand img{margin-top: 15px;margin-right: 35px;}
 /*prodcuto*/
-.lead-productos, .lead-eventos{padding: 50px 0 30px 0;background: #e4e1e1;}
+.lead-servicios, .lead-eventos{padding: 50px 0 30px 0;background: #e4e1e1;}
 .lead-bloque .lead-title h2{text-align: center;margin-top: 0;font-size: 30px;font-weight: 700;text-transform: uppercase;}
 .lead-bloque .lead-title h2 span{width: 30px;height: 24px;display: inline-block;vertical-align: top;margin-right: 5px;background: url(https://web.leadgods.com/s/modules/application/persona/img/ico-producto.png?v1.31) no-repeat;margin-top: 3px;}
 .lead-bloque .lead-title p{text-align: center;font-size: 22px;color: #999999;line-height: 120%;margin-bottom: 35px;}

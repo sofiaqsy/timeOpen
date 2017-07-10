@@ -1,6 +1,6 @@
 <?php
 
-class Productos {
+class Servicios {
 
   private $db;
   private $iduser;

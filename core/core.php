@@ -38,6 +38,9 @@ require('core/bin/functions/EmailTemplate.php');
 require('core/bin/functions/Users.php');
 require('core/bin/functions/Categorias.php');
 require('core/bin/functions/Categorias_users.php');
+require('core/bin/functions/CursosPorUsuarios.php');
+require('core/bin/functions/Servicios_Usuarios.php');
+
 require('core/bin/functions/UrlAmigable.php');
 
 require('core/bin/functions/Areas.php');

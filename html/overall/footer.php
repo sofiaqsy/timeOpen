@@ -40,7 +40,7 @@
 
 					if(respuesta.respuesta == 'done'){
 						$('#fotografia').removeAttr('scr');
-						$('#fotografia').attr('src','views/app/images/productos/' + respuesta.fileName);
+						$('#fotografia').attr('src','views/app/images/servicios/' + respuesta.fileName);
 						$('#loaderAjax').show();
 						// alert(respuesta.mensaje);
 					}

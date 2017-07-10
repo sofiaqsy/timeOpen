@@ -1,6 +1,6 @@
 <?php
 if($_SESSION['app_id']!="" && $_POST['id_prod']!=""){
-  if($_SESSION['app_id']!=$_productos[$_POST['id_prod']]['iduser']){
+  if($_SESSION['app_id']!=$_servicios[$_POST['id_prod']]['iduser']){
 $db = new Conexion();
 $usuarioNotificadornombre=$_users[$_SESSION['app_id']]['NOM_USU'];
 $usuarioNotificadorapellido=$_users[$_SESSION['app_id']]['APE_USU'];
@@ -13,7 +13,7 @@ $marcaPublicador=$_POST['marca'];
 $modeloPublicador=$_POST['modelo'];
 
 $codProd=$_POST['id_prod'];
-$preProd=$_productos[$_POST['id_prod']]['PRE_PROD'];
+$preProd=$_servicios[$_POST['id_prod']]['PRE_PROD'];
 
 
 $id_prod=$_POST['id_prod'];
