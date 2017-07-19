@@ -2934,18 +2934,18 @@ body{font-family: "Roboto Condensed", sans-serif;font-weight: 300;background: #e
 article.lead-nota{background: #fff;border: 1px solid #E8E8E8;border-radius: 3px;box-shadow: 0 2px 0 #E8E8E8;}
 article.lead-nota a{display: block;}
 article.lead-nota a figure{position: relative;}
-article.lead-nota a figure span{display: inline-block;height: 25px;background: #000;font-size: 14px;color: #fff;line-height: 25px;padding: 0 20px;position: absolute;top: 10px;left: 0;font-weight: 700;text-transform: uppercase;z-index: 2;}
-.spany{display: inline-block;height: 25px;background: #000;font-size: 14px;color: #fff;line-height: 25px;padding: 0 20px;position: absolute;top: 10px;left: 0;font-weight: 700;text-transform: uppercase;z-index: 2;}
+article.lead-nota a figure span{display: inline-block;height: 25px;background: #2c2c2c;font-size: 14px;color: #fff;line-height: 25px;padding: 0 20px;position: absolute;top: 10px;left: 0;font-weight: 700;text-transform: uppercase;z-index: 2;}
+.spany{display: inline-block;height: 25px;background: #2c2c2c;font-size: 14px;color: #fff;line-height: 25px;padding: 0 20px;position: absolute;top: 10px;left: 0;font-weight: 700;text-transform: uppercase;z-index: 2;}
 article.lead-nota a figure img{width: 100%;}
-.cnt-nota-slider{padding: 18px;border:1px solid transparent;}
+.cnt-nota-slider{padding: 18px 18px 0px;border:1px solid transparent; height: 110px}
 .cnt-nota-slider h2{margin-top: 0;margin-bottom: 5px;color: #505050;font-size: 18px;font-weight: 700;}
 .cnt-nota-slider h4{margin-top: 0;margin-bottom: 10px;color: #505050;font-size: 16px;}
-.cnt-nota-slider p{color: #999999;font-size: 16px;line-height: 120%;margin-bottom: 15px;height: 57px;overflow: hidden;}
+.cnt-nota-slider p{color: #999999;font-size: 15px;line-height: 120%;margin-bottom: 15px;height: 40px;overflow: hidden;}
 .cnt-cart{height: 32px;background: #23527c;padding: 0 10px;line-height: 32px;font-size: 20px;color: #fff;text-transform: uppercase;font-weight: 700;display: inline-block;border-radius: 5px;}
 .cnt-cart span{font-size: 18px;margin-right: 5px;}
 .ico-video{background: url(https://web.leadgods.com/s/modules/application/persona/img/ico-video.png?v1.31) no-repeat;width: 48px;height: 51px;position: absolute;left: 50%;top: 50%;margin-left: -24px;margin-top: -25px;z-index: 3;}
 .bg{background: rgba(0, 157, 219, 0.1);display: none;position: absolute;top: 0;left: 0;right: 0;bottom: 0;z-index: 1;}
-article.lead-nota a:hover .cnt-nota-slider{border:1px solid #009ddb;border-radius: 0 0 3px 3px;box-shadow: 0 2px 0 #009ddb;}
+article.lead-nota a:hover .cnt-nota-slider{border:1px solid #009ddb;border-ra: ;dius: 0 0 3px 3px;box-shadow: 0 2px 0 #009ddb;}
 article.lead-nota a:hover figure .bg{display: block;}
 article.lead-nota a:hover .cnt-cart{background: #000;}
 .custom-sl .owl-buttons div{text-indent: -999999px;width: 16px;height: 40px;position: absolute;top: 50%;margin-top: -20px;}

@@ -3,6 +3,7 @@
 class Service{
 
   private $db;
+  private $idservice;
   private $titulo;
   private $price;
   private $horas;
@@ -50,9 +51,11 @@ class Service{
     $this->Errors('?view=servicios&mode=add&error=');
     $this->db->query("INSERT INTO service(titulo,price,horas,lugar,descripcion,detalles,imagen,situacion,cantidad_alumnos,id_usuario,id_curso)
      VALUES ('$this->titulo','$this->price','$this->horas','$this->lugar','$this->descripcion','$this->detalles','$this->imagen','$this->situacion','$this->cantidad_alumnos','$this->id_usuario','$this->id_curso');");
-     if(empty($this->imagen))
+     if(!empty($this->imagen))
      {
        include('core/bin/functions/subir_img.php');
+       subir_img(CARP_IMG_SERV);
+
      }
     header('location: ?view=servicios&mode=add&success=true');
 
@@ -60,15 +63,19 @@ class Service{
   }
 
   public function Edit() {
-    $this->id = $_GET['id'];
+    $this->idservice = $_GET['id'];
     $this->Errors('?view=servicios&mode=edit&id='.$this->id.'&error=');
-    $this->db->query("UPDATE producto SET EST_PROD='$this->EST_PROD',IMA_PROD='$this->IMA_PROD',PRE_PROD='$this->PRE_PROD',COD_MOD='$this->COD_MOD' ,DES_PROD='$this->DES_PROD'  WHERE COD_PROD='$this->id';");
+    $this->db->query("UPDATE service SET titulo='$this->titulo',price='$this->price',horas='$this->horas',lugar='$this->lugar' ,descripcion='$this->descripcion',detalles='$this->detalles',imagen='$this->imagen' ,cantidad_alumnos='$this->cantidad_alumnos'  WHERE idservice ='$this->idservice';");
+    if(empty($this->imagen))
+    {
+      $this->db->query("UPDATE service SET imagen='default.jpg'  WHERE idservice ='$this->idservice';");
+    }
     header('location: ?view=servicios&mode=edit&id='.$this->id.'&success=true');
   }
 
   public function Delete() {
     $this->id = $_GET['id'];
-    $this->db->query("DELETE FROM producto WHERE COD_PROD='$this->id';");
+    $this->db->query("DELETE FROM service WHERE idservice='$this->id';");
 
     header('location: ?view=servicios');
   }

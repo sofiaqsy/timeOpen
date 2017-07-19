@@ -29,10 +29,10 @@
       <select id="area" class="form-control" name="area">
         <option >Elige el area</option>
         <?php foreach ($_areas as $id_area => $value):
-          if( $_areas[$id_area]["idarea"]==$_users[$id_usuario]['id_area']): ?>
-          <option value="<?php echo $_areas[$id_area]["idarea"] ?>" selected><?php echo $_areas[$id_area]["nombre"] ?></option>
+          if( $id_area==$_users[$id_usuario]['id_area']): ?>
+          <option value="<?php echo $id_area?>" selected><?php echo $_areas[$id_area]["nombre"] ?></option>
           <?php else :?>
-            <option value="<?php echo $_areas[$id_area]["idarea"] ?>"><?php echo $_areas[$id_area]["nombre"] ?></option>
+            <option value="<?php echo $id_area ?>"><?php echo $_areas[$id_area]["nombre"] ?></option>
           <?php endif;?>
         <?php endforeach; ?>
       </select>

@@ -40,15 +40,27 @@ require('core/bin/functions/Categorias.php');
 require('core/bin/functions/Categorias_users.php');
 require('core/bin/functions/CursosPorUsuarios.php');
 require('core/bin/functions/Servicios_Usuarios.php');
+require('core/bin/functions/Service.php');
+require('core/bin/functions/All_Categorias.php');
+require('core/bin/functions/All_Cursos.php');
+
+
 
 require('core/bin/functions/UrlAmigable.php');
 
 require('core/bin/functions/Areas.php');
 require('core/bin/functions/Subir_fichero.php');
 require('core/bin/functions/EmailNotificacion.php');
+require('core/bin/functions/Cortar.php');
+
 
 
 $_users = Users();
 $_areas = Areas();
+$_services = Service();
+$_allcategorias = All_Categorias();
+$_allcursos = All_Cursos();
+
+
 
 ?>

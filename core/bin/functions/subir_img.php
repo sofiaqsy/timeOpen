@@ -1,5 +1,5 @@
 <?php
-
+function subir_img($directorio){
 $nombre_img = $_FILES['imagen']['name'];
 $tipo = $_FILES['imagen']['type'];
 $tamano = $_FILES['imagen']['size'];
@@ -12,10 +12,8 @@ if (($nombre_img == !NULL) && ($_FILES['imagen']['size'] <= 200000))
    || ($_FILES["imagen"]["type"] == "image/jpg")
    || ($_FILES["imagen"]["type"] == "image/png"))
    {
-      // Ruta donde se guardarán las imágenes que subamos
-      $directorio = CARP_IMG;
       // Muevo la imagen desde el directorio temporal a nuestra ruta indicada anteriormente
-      move_uploaded_file($_FILES['imagen']['tmp_name'],$directorio.$nombre_img);
+      move_uploaded_file($_FILES['imagen']['tmp_name'],"$directorio/$nombre_img");
     }
     else
     {
@@ -27,5 +25,6 @@ else
 {
    //si existe la variable pero se pasa del tamaño permitido
    if($nombre_img == !NULL) echo "La imagen es demasiado grande ";
+}
 }
 ?>

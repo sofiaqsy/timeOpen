@@ -59,35 +59,21 @@
   <div class="registroContenedor" >
          <h3 class="category-name marginLeftRegister">AREAS</h3>
        <ul style="padding:5px;padding-top:0px;" >
+         <?php foreach ($_areas as $id_areas => $value):?>
                    <li class="has-children ">
-             <samp class="datBorde" > <a href="/cursos/cursos-certificado">Ingenieria </a></samp>
-           </li>
-                   <li class="has-children ">
-             <samp class="datBorde" > <a href="/cursos/cursos-programas-de-tv">gestion </a></samp>
-           </li>
-                   <li class="has-children ">
-             <samp class="datBorde" > <a href="/cursos/cursos-por-docente">humanidades </a></samp>
-           </li>
-                   <li class="has-children ">
-             <samp class="datBorde" > <a href="/cursos/cursos-transmitido-en-vivo">arquitectura</a></samp>
-           </li>
-        </ul>
+             <samp class="datBorde" > <a href="?view=index&area=<?php echo $id_areas?>"><?php echo $_areas[$id_areas]['nombre'] ?></a></samp>
+                   </li>
+          <?php endforeach;?>
+      </ul>
    </div>
     <div class="registroContenedor" >
      <h3 class="category-name marginLeftRegister">Especializacion</h3>
          <ul style="padding:5px;padding-top:0px;" >
-                     <li class="has-children ">
-               <samp class="datBorde" > <a href="/cursos/cursos-certificado">numero</a></samp>
+            <?php foreach ($_allcategorias as $id_allcategorias => $value): ?>
+             <li class="has-children ">
+               <samp class="datBorde" > <a href="/cursos/cursos-certificado"><?php echo $_allcategorias[$id_allcategorias]['nombre'] ?></a></samp>
              </li>
-                     <li class="has-children ">
-               <samp class="datBorde" > <a href="/cursos/cursos-programas-de-tv">gestion </a></samp>
-             </li>
-                     <li class="has-children ">
-               <samp class="datBorde" > <a href="/cursos/cursos-por-docente">humanidades </a></samp>
-             </li>
-                     <li class="has-children ">
-               <samp class="datBorde" > <a href="/cursos/cursos-transmitido-en-vivo">arquitectura</a></samp>
-             </li>
+           <?php endforeach; ?>
           </ul>
     </div>
  </div>
@@ -96,27 +82,31 @@
         <div class="fluid-list cnt-curso-m">
           <div class="fluid-list list-num-c custom-biialab">
             <div class="row">
+              <?php if(false!=$_services): foreach ($_services as $id_services => $value):?>
                  <div class="col-md-4 cntContador" style="margin-top: 7px;">
                    <article class="fluid-list lead-nota">
                        <a href="/curso/como-hacer-una-conferencia-exitosa-storyteller" title="">
-                         <span class="spany">Ingenieria</span>
+                         <span class="spany"><?php echo $_areas[$_allcategorias[$_allcursos[$_services[$id_services]['id_curso']]['idcategoria_cursos']]['idarea']]['nombre'] ?></span>
                          <br>
                            <div class="fluid-list cnt-nota-slider">
-                               <h2>Como Hacer Una Conferencia Exitosa Storyteller</h2>
-                                  <p>El contar historias que atrapen la atención, que lleven a la reflexión y nos lleven a la transformación son sumamente necesarios para poder ser un orador que trascienda.</p>
+                               <h4><?php echo Cortar($_services[$id_services]['titulo'],50)?></h4>
+                                  <p><?php echo Cortar($_services[$id_services]['descripcion'],66)?></p>
                            </div>
-                           <figure>
-                            <center><img src="views/app/images/servicios/img2.jpg" style="max-height:150px; max-width:300px;"></center>
-                          </figure>
+                           <?php if(!empty($_services[$id_services]['imagen'])):?>
+                             <figure>
+                              <center><img src="<?php echo CARP_IMG_SERV.$_services[$id_services]['imagen'] ?>" style="max-height:150px; max-width:300px;"></center>
+                            </figure>
+                          <?php endif;?>
                           <div class="fluid-list rated-s">
                               <div class="star-ratings-sprite">
                                   <span style="width:90%" class="star-ratings-sprite-rating"></span>
                               </div>
-                              <span>Costo : S/ 30.00<em>(188)</em></span>
+                              <span>S/<?php echo $_services[$id_services]['price']?><em>(188)</em></span>
                           </div>
                        </a>
                    </article>
                 </div>
+              <?php endforeach;endif; ?>
 
             </div>
      </div>

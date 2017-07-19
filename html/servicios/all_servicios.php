@@ -49,42 +49,31 @@
                       <th>Curso</th>
                       <th>Titulo</th>
                       <th>Precio</th>
-                      <th>Situacion</th>
-                      <th>Fecha</th>
+                      <th>Estado</th>
+                      <th>nro. alumnos</th>
+                      <th>Fecha Caducidad</th>
                       <th>Acciones</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>@mdo</td>
-                      <td>@mdo</td>
-                      <td>
-                          <a class="teal-text" style="padding:10px 15px;"><i class="glyphicon glyphicon-pencil"></i></a>
-                          <a class="teal-text"><i class="glyphicon glyphicon-remove"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">4</th>
-                      <td>Larrsssy</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
-                    </tr>
+                    <?php if(false!=$_serviciosporusuario):$cnt=0;
+                  foreach ($_serviciosporusuario as $id_serviciosporusuario => $value):
+                  $cnt++;
+                  ?>
+                  <tr>
+                  <th scope="row" id="idservice" value="<?php echo $id_serviciosporusuario ?>"><?php echo $cnt; ?></th>
+                  <td><?php echo Cortar($_cursosporusuarios[$_serviciosporusuario[$id_serviciosporusuario]['id_curso']]['nombre'],20); ?></td>
+                  <td><?php echo Cortar($_serviciosporusuario[$id_serviciosporusuario]['titulo'],20) ?></td>
+                  <td><?php echo $_serviciosporusuario[$id_serviciosporusuario]['price'] ?></td>
+                  <td><?php if($_serviciosporusuario[$id_serviciosporusuario]['estado']=1): ?>Activo<?php else: ?>Inactivo <?php endif;?></td>
+                  <td><?php echo $_serviciosporusuario[$id_serviciosporusuario]['cantidad_alumnos'] ?></td>
+                  <td><?php echo $_serviciosporusuario[$id_serviciosporusuario]['fecha_cad'] ?></td>
+                  <td>
+                  <a class="teal-text" style="padding:5px 5px;" href="?view=servicios&mode=edit&id=<?php echo $id_serviciosporusuario ?>"><i class="glyphicon glyphicon-pencil"></i></a>
+                  <a class="teal-text" onclick="DeleteItem('¿Está seguro de eliminar este servicio?','?view=servicios&mode=delete&id=<?php echo $id_serviciosporusuario ?>')" ><i class="glyphicon glyphicon-remove"></i></a>
+                  </td>
+                  </tr>
+                  <?php endforeach;endif; ?>
                   </tbody>
                 </table>
               </div>
@@ -92,10 +81,17 @@
        </div>
     </div>
   </div>
-
 </section>
 
+<?php include(HTML_DIR . 'servicios/edit_servicio.php'); ?>
 <?php include(HTML_DIR . 'overall/footer.php'); ?>
+<script>
+$( document ).ready(function() {
+ 	$("#editar").click(function(){
+   alert($("#idservice").text());
 
+    	});
+});
+</script>
 </body>
 </html>

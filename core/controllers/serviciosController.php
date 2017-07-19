@@ -15,11 +15,12 @@ if(isset($_SESSION['app_id'])) {
       }
     break;
     case 'edit':
-      if($isset_id and array_key_exists($_GET['id'],$_servicios)) {
-        if($_POST) {
+      if($isset_id and array_key_exists($_GET['id'],$_services)) {
+        if($_POST) { 
           $servicios->Edit();
         } else {
-          include(HTML_DIR . 'servicios/edit_producto.php');
+          $idservice=$_GET['id'];
+          include(HTML_DIR . 'servicios/edit_servicio.php');
         }
       } else {
         header('location: ?view=servicios');

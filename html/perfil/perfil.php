@@ -46,7 +46,6 @@
              <strong>Error</strong>Tus configuraciones no han sido guardadas
            </div>
          <?php endif ?>
-
                 <div class="col-sm-12">
                     <div class="col-xs-12 col-sm-12">
                         <center><h2><?php echo $_users[$id_usuario]['name'].' '.$_users[$id_usuario]['last_name']; ?></h2></center>
@@ -72,18 +71,34 @@
                                     </p>
                                 </figcaption></center>
                             </figure>
-                        <p><strong>Usuario: </strong> <?php echo $_users[$id_usuario]['name'].' '.$_users[$id_usuario]['last_name']; ?> </p>
-                        <p><strong>Email: </strong> <?php echo $_users[$id_usuario]['email']?> </p>
-                        <p><strong>Universidad: </strong> <?php echo $_users[$id_usuario]['institucion']?> </p>
-                        <p><strong>Tipo de Usuario</strong> <?php echo $_users[$id_usuario]['idtype_user']?> </p>
-                        <p><strong>Area: </strong> <?php echo $_users[$id_usuario]['id_area']?></p>
-                        <p><strong>Categorias : </strong>
-                            <span ><?php echo $_users[$id_usuario]['email']?></span>
-                        </p>
+                            <table class="table table-user-information">
+                              <tbody>
+                                <tr>
+                                  <td>Usuario:</td>
+                                  <td><?php echo $_users[$id_usuario]['name'].' '.$_users[$id_usuario]['last_name']; ?></td>
+                                </tr>
+                                <tr>
+                                  <td>Email:</td>
+                                  <td> <?php echo $_users[$id_usuario]['email']?></td>
+                                </tr>
+                                <tr>
+                                  <td>Universidad</td>
+                                  <td><?php echo $_users[$id_usuario]['institucion']?></td>
+                                </tr>
+                                <tr>
+                                  <td>Tipo de Usuario</td>
+                                  <td><?php echo $_users[$id_usuario]['idtype_user']?></td>
+                                </tr>
+                                <tr>
+                                  <td>Area</td>
+                                  <td><?php echo $_users[$id_usuario]['id_area']?></td>
+                                </tr>
+                              </tbody>
+                            </table>
                     </div>
                 </div>
                 <?php if($id_usuario==$this_user) :?>
-                <div class="col-xs-12 divider text-center">
+                <div class="col-xs-12  text-center">
                   <br>
                     <div class="col-xs-12 col-sm-6 ">
                         <button class="btn btn-primary" data-toggle="modal" data-target="#Configurar"><span class="glyphicon glyphicon-wrench"></span>Configurar</button>
