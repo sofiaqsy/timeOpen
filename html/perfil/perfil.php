@@ -24,8 +24,6 @@
           <ol class="breadcrumb">
               <li><a href="?view=index"><i class="glyphicon glyphicon-home"></i> Home</a>
               </li>
-              <li><a href="?view=index"> Perfil</a>
-              </li>
           </ol>
        </div>
 
@@ -54,19 +52,19 @@
                                 <figcaption class="ratings">
                                     <p>Ratings
                                     <a href="#">
-                                        <span class="fa fa-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
                                     </a>
                                     <a href="#">
-                                        <span class="fa fa-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
                                     </a>
                                     <a href="#">
-                                        <span class="fa fa-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
                                     </a>
                                     <a href="#">
-                                        <span class="fa fa-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
                                     </a>
                                     <a href="#">
-                                         <span class="fa fa-star-o"></span>
+                                         <span class="glyphicon glyphicon-star"></span>
                                     </a>
                                     </p>
                                 </figcaption></center>
@@ -99,78 +97,56 @@
                 </div>
                 <?php if($id_usuario==$this_user) :?>
                 <div class="col-xs-12  text-center">
-                  <br>
-                    <div class="col-xs-12 col-sm-6 ">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#Configurar"><span class="glyphicon glyphicon-wrench"></span>Configurar</button>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 ">
 
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#Configurar"><span class="glyphicon glyphicon-wrench"></span>Configurar</button>
                         <a href="?view=perfil&mode=edit&id=<?php echo $_users[$id_usuario]['iduser']; ?>"><button class="btn btn-primary"><span class="fa fa-plus-circle"></span> Editar Perfil </button></a>
-                    </div>
                 </div>
                 <?php endif;?>
         	 </div>
     		</div>
         <div class=" col-md-8">
-          <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="pull-left">
-                        <a href="#">
-                            <img class="media-object img-circle" src="views/app/images/users/default.jpg" width="50px" height="50px" style="margin-right:8px; margin-top:-5px;">
-                        </a>
-                    </div>
-                    <h4><a href="#" style="text-decoration:none;"><strong>John Doe</strong></a> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 42 minutes ago</i></a></small></small></h4>
-                    <span>
-                        <div class="navbar-right">
-                            <div class="dropdown">
-                                <button class="btn btn-link btn-xs dropdown-toggle" type="button" id="dd1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    <i class="fa fa-cog" aria-hidden="true"></i>
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dd1" style="float: right;">
-                                    <li><a href="#"><i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i> Report</a></li>
-                                    <li><a href="#"><i class="fa fa-fw fa-ban" aria-hidden="true"></i> Ignore</a></li>
-                                    <li><a href="#"><i class="fa fa-fw fa-bell" aria-hidden="true"></i> Enable notifications for this post</a></li>
-                                    <li><a href="#"><i class="fa fa-fw fa-eye-slash" aria-hidden="true"></i> Hide</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#"><i class="fa fa-fw fa-trash" aria-hidden="true"></i> Delete</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </span>
-                    <hr>
-                    <div class="post-content">
-                        <p>Simple post content example.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida metus, non ultrices sapien. Morbi odio metus, dapibus non nibh id amet.</p>
-                    </div>
-                    <hr>
-                    <div>
-                        <div class="pull-right btn-group-xs">
-                            <a class="btn btn-default btn-xs"><i class="fa fa-comment" aria-hidden="true"></i> Comment</a>
-                        </div>
-                        <div class="pull-left">
-                            <p class="text-muted" style="margin-left:5px;"><i class="fa fa-globe" aria-hidden="true"></i> Public</p>
-                        </div>
-                        <br>
-                    </div>
-                    <hr>
-                    <div class="media">
-                        <div class="pull-left">
-                            <a href="#">
-                                <img class="media-object img-circle" src="views/app/images/users/default.jpg" width="35px" height="35px" style="margin-left:3px; margin-right:-5px;">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <textarea class="form-control" rows="1" placeholder="Comment"></textarea>
-                        </div>
-                    </div>
-                </div>
-
-        </div>
-    	</div>
-
-</div>
+        <?php if(false!=$_adquiridosporusuarios):
+          foreach ($_adquiridosporusuarios as $id_adquiridosporusuarios => $value):?>
+        <div class="panel panel-default" style="margin-bottom:8px;">
+              <div class="panel-body">
+                <h4><a href="#" style="text-decoration:none;">Nueva compra</a> <small><p ><i><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $_adquiridosporusuarios[$id_adquiridosporusuarios]['fecha'] ?></i></p></small></h4>
+                  <div class="navbar-right" style="margin-right :10px;">
+                    <span class="glyphicon glyphicon-lock"></span>
+                  </div>
+                  <hr>
+                  <div class="post-content">
+                      <p><?php echo $_allserviciosinactivos[$_adquiridosporusuarios[$id_adquiridosporusuarios]['id_service']]['titulo'];?></p>
+                      <p><?php echo $_allserviciosinactivos[$_adquiridosporusuarios[$id_adquiridosporusuarios]['id_service']]['descripcion'].". Monto total : S/".$_allserviciosinactivos[$_adquiridosporusuarios[$id_adquiridosporusuarios]['id_service']]['price'].".00 ";?></p>
+                      <p><?php echo $_allserviciosinactivos[$_adquiridosporusuarios[$id_adquiridosporusuarios]['id_service']]['lugar']." ". $_allserviciosinactivos[$_adquiridosporusuarios[$id_adquiridosporusuarios]['id_service']]['detalles'];?></p>
+                  </div>
+                  <span>
+                      <div class="navbar-right" style="margin-right :10px;">
+                          <div class="dropdown">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#Configurar">Marcar como terminado</button>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#Configurar">Cancelar</button>
+                          </div>
+                      </div>
+                  </span>
+                  <hr>
+              </div>
+      </div>
+    <?php  endforeach;endif;?>
+    <div class="panel panel-default" style="margin-bottom:8px;">
+          <div class="panel-body">
+              <h4><a href="#" style="text-decoration:none;">BIENVENIDO</a></h4>
+              <div class="navbar-right" style="margin-right :10px;">
+                <span class="glyphicon glyphicon-lock"></span>
+              </div>
+              <hr>
+              <div class="post-content">
+                  <p>Hola <?php echo $_users[$id_usuario]['name'];?></p>
+                  <p>En esta seccion podras ver tus movimientos, tambien podras cancelar o terminar algunar servicio que contrataste, no te preocupes
+                  solo tu puedes ver  esta seccion</p>
+              </div>
+              <hr>
+          </div>
   </div>
+
 </section>
 <!-- footer, llama a html index/overall/footer.php-->
 <?php include(HTML_DIR . 'public/configurar.php'); ?>

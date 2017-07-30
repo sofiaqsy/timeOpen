@@ -45,7 +45,7 @@ if($db->rows($sql) == 0) {
       <button type="button" class="close" data-dismiss="alert">x</button>
       <strong>ERROR:</strong> ' . $mail->ErrorInfo . ' </div>';
   } else {
-    $fecha_reg = date('d/m/Y', time());
+    $fecha_reg = date("Y/m/d H:i:s");
     $db->query("INSERT INTO user (name,last_name,email,password,fecha_registro,key_reg,idtype_user) VALUES ('$user_nom','$user_ape','$email','$pass','$fecha_reg','$keyreg',1);");
     $sql_2 = $db->query("SELECT MAX(iduser) AS iduser FROM user;");
     $_SESSION['app_id'] = $db->recorrer($sql_2)[0];

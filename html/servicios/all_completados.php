@@ -31,9 +31,9 @@
   </div>
     <div class="col-sm-3" style="padding-left: 0px;"><!--left col-->
         <ul class="nav nav-pills nav-stacked">
-          <li class="list-group-item text-muted active"><a href="?view=servicios" class="active" style="padding:0px 0px;" >Publicados</a></li>
+          <li class="list-group-item text-muted "><a href="?view=servicios" class="active" style="padding:0px 0px;" >Publicados</a></li>
           <li class="list-group-item text-muted "><a href="?view=servicios&mode=vendidos" class="active" style="padding:0px 0px;" >Pendientes</a></li>
-          <li class="list-group-item text-muted "><a href="?view=servicios&mode=completados" class="active" style="padding:0px 0px;" >Completados</a></li>
+          <li class="list-group-item text-muted active"><a href="?view=servicios&mode=completados" class="active" style="padding:0px 0px;" >Completados</a></li>
         </ul>
     </div>
 
@@ -43,33 +43,29 @@
             <div class="row cajas table-striped">
               <div class="col-md-12">
                 <table class="table">
-                  <?php if(false!=$_serviciosporusuario):?>
+                  <?php if(false!=$_vendidosporusuarios):$cnt=0;?>
                   <thead>
                     <tr>
                       <th>#</th>
                       <th>Curso</th>
                       <th>Titulo</th>
-                      <th>Precio</th>
-                      <th>Estado</th>
-                      <th>nro. alumnos</th>
-                      <th>Fecha Caducidad</th>
+                      <th>Nombres de Usuario</th>
+                      <th>Monto Acordado</th>
+                      <th>Fecha de venta</th>
                       <th>Acciones</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php $cnt=0;
-                  foreach ($_serviciosporusuario as $id_serviciosporusuario => $value):
-                      if($_serviciosporusuario[$id_serviciosporusuario]['cantidad_alumnos']>0):
+                    <?php $cnt=0;foreach ($_vendidosporusuarios as $id_vendidosporusuarios => $value) : if($_vendidosporusuarios[$id_vendidosporusuarios]['estado']=="CONCLUIDO"):
                   $cnt++;
                   ?>
                   <tr>
-                  <th scope="row" id="idservice" value="<?php echo $id_serviciosporusuario ?>"><?php echo $cnt; ?></th>
-                  <td><?php echo $_cursosporusuarios[$_serviciosporusuario[$id_serviciosporusuario]['id_curso']]['nombre_corto']; ?></td>
-                  <td><?php echo Cortar($_serviciosporusuario[$id_serviciosporusuario]['titulo'],20) ?></td>
-                  <td><?php echo $_serviciosporusuario[$id_serviciosporusuario]['price'] ?></td>
-                  <td><?php if($_serviciosporusuario[$id_serviciosporusuario]['estado']=1): ?>Activo<?php else: ?>Inactivo <?php endif;?></td>
-                  <td><?php echo $_serviciosporusuario[$id_serviciosporusuario]['cantidad_alumnos'] ?></td>
-                  <td><?php echo $_serviciosporusuario[$id_serviciosporusuario]['fecha_cad'] ?></td>
+                  <th scope="row" id="idservice" value="<?php echo $id_vendidosporusuarios ?>"><?php echo $cnt; ?></th>
+                  <td><?php echo $_cursosporusuarios[$_serviciosporusuario[$_vendidosporusuarios[$id_vendidosporusuarios]['id_service']]['id_curso']]['nombre_corto']; ?></td>
+                  <td><?php echo Cortar($_serviciosporusuario[$_vendidosporusuarios[$id_vendidosporusuarios]['id_service']]['titulo'],20) ?></td>
+                  <td><?php echo $_users[$_vendidosporusuarios[$id_vendidosporusuarios]['id_user']]['name']." ".$_users[$_vendidosporusuarios[$id_vendidosporusuarios]['id_user']]['last_name'] ?></td>
+                  <td><?php echo $_vendidosporusuarios[$id_vendidosporusuarios]['precio_total'] ?></td>
+                  <td><?php echo Cortar($_vendidosporusuarios[$id_vendidosporusuarios]['fecha'],10) ?></td>
                   <td>
                   <a class="teal-text" style="padding:5px 5px;" href="?view=servicios&mode=edit&id=<?php echo $id_serviciosporusuario ?>"><i class="glyphicon glyphicon-pencil"></i></a>
                   <a class="teal-text" onclick="DeleteItem('¿Está seguro de eliminar este servicio?','?view=servicios&mode=delete&id=<?php echo $id_serviciosporusuario ?>')" ><i class="glyphicon glyphicon-remove"></i></a>
@@ -77,7 +73,7 @@
                   </tr>
                 <?php endif; endforeach;else: ?>
                   <div class="alert alert-dismissible alert-success">
-                    <strong>Vacio </strong> Aun no se ha publicado ningun servicio
+                    <strong>Vacio </strong> Aun no se has completado un servicio
                   </div>
                 <?php endif; ?>
                   </tbody>

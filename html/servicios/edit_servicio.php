@@ -12,7 +12,7 @@
                 <a class="btn btn-primary" href="?view=servicios">Gestionar servicios</a>
             </div>
             <div class="mbr-navbar__column">
-                  <a class="btn btn-primary " href="?view=servicios">Crear servicio</a>
+                  <a class="btn btn-primary " href="?view=servicios&mode=add">Crear servicio</a>
               </div>
         </div>
       <ol class="breadcrumb">

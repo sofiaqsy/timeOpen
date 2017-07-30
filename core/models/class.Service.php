@@ -15,6 +15,7 @@ class Service{
   private $cantidad_alumnos;
   private $id_usuario;
   private $id_curso;
+  private $fecha_pub;
 
 
   public function __construct() {
@@ -38,6 +39,7 @@ class Service{
             $this->situacion=$this->db->real_escape_string('A');
             $this->cantidad_alumnos=$this->db->real_escape_string($_POST['cantidad_alumnos']);
             $this->id_curso=$this->db->real_escape_string($_POST['curso']);
+            $this->fecha_pub=$this->db->real_escape_string(date("Y/m/d H:i:s"));
           }
         } catch(Exception $error) {
           header('location: '.$url .$error->getMessage());
@@ -49,14 +51,15 @@ class Service{
 
   public function Add() {
     $this->Errors('?view=servicios&mode=add&error=');
-    $this->db->query("INSERT INTO service(titulo,price,horas,lugar,descripcion,detalles,imagen,situacion,cantidad_alumnos,id_usuario,id_curso)
-     VALUES ('$this->titulo','$this->price','$this->horas','$this->lugar','$this->descripcion','$this->detalles','$this->imagen','$this->situacion','$this->cantidad_alumnos','$this->id_usuario','$this->id_curso');");
-     if(!empty($this->imagen))
-     {
-       include('core/bin/functions/subir_img.php');
-       subir_img(CARP_IMG_SERV);
-
-     }
+    if(!empty($this->imagen))
+    {
+      include('core/bin/functions/subir_img.php');
+      subir_img(CARP_IMG_SERV);
+    }else{
+      $this->imagen='default.jpg';
+    }
+    $this->db->query("INSERT INTO service(titulo,price,horas,lugar,descripcion,detalles,imagen,situacion,cantidad_alumnos,id_usuario,id_curso,fecha_pub)
+     VALUES ('$this->titulo','$this->price','$this->horas','$this->lugar','$this->descripcion','$this->detalles','$this->imagen','$this->situacion','$this->cantidad_alumnos','$this->id_usuario','$this->id_curso','$this->fecha_pub');");
     header('location: ?view=servicios&mode=add&success=true');
 
 

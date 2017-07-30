@@ -43,7 +43,9 @@ require('core/bin/functions/Servicios_Usuarios.php');
 require('core/bin/functions/Service.php');
 require('core/bin/functions/All_Categorias.php');
 require('core/bin/functions/All_Cursos.php');
-
+require('core/bin/functions/Vendidos.php');
+require('core/bin/functions/Adquiridos.php');
+require('core/bin/functions/ServiciosInactivos.php');
 
 
 require('core/bin/functions/UrlAmigable.php');
@@ -60,6 +62,7 @@ $_areas = Areas();
 $_services = Service();
 $_allcategorias = All_Categorias();
 $_allcursos = All_Cursos();
+$_allserviciosinactivos = ServiciosInactivos();
 
 
 

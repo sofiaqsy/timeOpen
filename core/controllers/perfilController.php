@@ -19,6 +19,7 @@ if(isset($_GET['id']) and array_key_exists($_GET['id'],$_users)) {
       break;
 
     default:
+    $_adquiridosporusuarios=AdquiridosPorUsuario($_SESSION['app_id']);
     include(HTML_DIR . 'perfil/perfil.php');
     break;
   }

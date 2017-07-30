@@ -16,7 +16,7 @@ if(isset($_SESSION['app_id'])) {
     break;
     case 'edit':
       if($isset_id and array_key_exists($_GET['id'],$_services)) {
-        if($_POST) { 
+        if($_POST) {
           $servicios->Edit();
         } else {
           $idservice=$_GET['id'];
@@ -32,6 +32,14 @@ if(isset($_SESSION['app_id'])) {
       } else {
         header('location: ?view=servicios');
       }
+    break;
+    case 'vendidos':
+    $_vendidosporusuarios=VendidosPorUsuario($_SESSION['app_id']);
+    include(HTML_DIR . 'servicios/all_vendidos.php');
+    break;
+    case 'completados':
+    $_vendidosporusuarios=VendidosPorUsuario($_SESSION['app_id']);
+    include(HTML_DIR . 'servicios/all_completados.php');
     break;
     default:
 

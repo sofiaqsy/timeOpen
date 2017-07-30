@@ -12,7 +12,7 @@ class Config {
 
   public function __construct() {
     $this->db = new Conexion();
-    $this->fecha = $fecha_reg = date('d/m/Y', time());
+    $this->fecha = $fecha_reg = date("Y/m/d H:i:s");
   }
 
   private function Errors($url) {
@@ -35,7 +35,7 @@ class Config {
 
   public function AddConfig() {
     $this->Errors('?view=perfil&error=');
-  //  $this->db->query("INSERT INTO user_categoria_cursos(fecha,iduser,idcategoria_cursos) VALUES ('$this->fecha','$this->iduser','$this->idcategoria_cursos');");
+    $this->db->query("INSERT INTO user_categoria_cursos(fecha,iduser,idcategoria_cursos) VALUES ('$this->fecha','$this->iduser','$this->idcategoria_cursos');");
     $this->db->query("UPDATE user SET institucion='$this->institucion' WHERE iduser= '$this->iduser';");
     $this->db->query("UPDATE user SET id_area='$this->area' WHERE iduser= '$this->iduser';");
     $this->db->query("UPDATE user SET idtype_user='$this->tipo_usuario' WHERE iduser= '$this->iduser';");

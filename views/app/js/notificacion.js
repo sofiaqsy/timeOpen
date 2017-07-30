@@ -1,14 +1,11 @@
 function goNot() {
-  var connect, form, result,id,id_prod;
-    id=document.getElementById('usuario').innerHTML;
-    id_prod=document.getElementById('ida').innerHTML;
-    marca=document.getElementById('marca').innerHTML;
-    modelo=document.getElementById('modelo').innerHTML;
-    sit=document.getElementById('sit').innerHTML;
-    
-    if(sit=="Activo"){
-              form = 'id=' + id+ '&marca=' + marca+ '&modelo=' + modelo + '&id_prod=' + id_prod;
-              connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+  var connect, form, result,id,id_ser;
+    id_ser=document.getElementById('id_ser').innerHTML;
+    titulo=document.getElementById('titulo').innerHTML;
+
+
+      form = '&titulo=' + titulo + '&id_ser=' + id_ser;
+      connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
                 connect.onreadystatechange = function() {
           if(connect.readyState == 4 && connect.status == 200) {
             if(connect.responseText == 1) {
@@ -33,13 +30,4 @@ function goNot() {
           connect.open('POST','ajax.php?mode=not',true);
         connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
         connect.send(form);
-      }else{
-        result = '<div class="alert alert-dismissible alert-warning">';
-        result += '<button type="button" class="close" data-dismiss="alert">x</button>';
-        result += '<h4>Restringido</h4>';
-        result += '<p><strong>Este producto ya ha sido reservado</strong></p>';
-        result += '</div>';
-      document.getElementById('_AJAX_NOT_').innerHTML = result;
       }
-
-}

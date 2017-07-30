@@ -27,7 +27,7 @@ class UserCategoria {
   }
 
   public function Add() {
-    $this->fecha = $fecha_reg = date('d/m/Y', time());
+    $this->fecha = $fecha_reg = date("Y/m/d H:i:s");
     $this->Errors('?view=perfil&error=');
     $this->db->query("INSERT INTO user_categoria_cursos(fecha,iduser,idcategoria_cursos) VALUES ('$this->fecha','$this->iduser','$this->idcategoria_cursos');");
     header('location: ?view=perfil&id='.$this->iduser.'&success=true');

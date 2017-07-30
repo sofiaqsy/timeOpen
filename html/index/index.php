@@ -85,10 +85,11 @@
               <?php if(false!=$_services): foreach ($_services as $id_services => $value):?>
                  <div class="col-md-4 cntContador" style="margin-top: 7px;">
                    <article class="fluid-list lead-nota">
-                       <a href="/curso/como-hacer-una-conferencia-exitosa-storyteller" title="">
+                       <a href="?view=detalles&id=<?php echo $id_services ?>">
                          <span class="spany"><?php echo $_areas[$_allcategorias[$_allcursos[$_services[$id_services]['id_curso']]['idcategoria_cursos']]['idarea']]['nombre'] ?></span>
                          <br>
                            <div class="fluid-list cnt-nota-slider">
+
                                <h4><?php echo Cortar($_services[$id_services]['titulo'],50)?></h4>
                                   <p><?php echo Cortar($_services[$id_services]['descripcion'],66)?></p>
                            </div>
@@ -104,16 +105,23 @@
                               <span>S/<?php echo $_services[$id_services]['price']?><em>(188)</em></span>
                           </div>
                        </a>
+                       <div class="space-ten"></div>
+                         <div class="btn-ground" >
+                           <button class="btn btn-primary col-md-12" type="button"  <?php if(!isset($_SESSION['app_id'])){echo'data-toggle="modal" data-target="#Login"';}else{echo'onclick="goNot();"';}?> >Obtener</button>
+
+                         </div>
+                       <div class="space-ten"></div>
+
                    </article>
                 </div>
               <?php endforeach;endif; ?>
-
             </div>
      </div>
-
    </div>
- </div></section>
  </div>
+</section>
+ </div>
+
 
 <!-- fin de la  seccion cabeceza 2-->
 <!-- footer, llama a html index/overall/footer.php-->

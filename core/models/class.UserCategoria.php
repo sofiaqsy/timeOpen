@@ -8,7 +8,7 @@ class UserCategoria {
 
   public function __construct() {
     $this->db = new Conexion();
-    $this->fecha = $fecha_reg = date('d/m/Y', time());
+    $this->fecha = $fecha_reg = date("Y/m/d H:i:s");
   }
 
   private function Errors($url) {
