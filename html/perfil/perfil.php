@@ -122,8 +122,12 @@
                   <span>
                       <div class="navbar-right" style="margin-right :10px;">
                           <div class="dropdown">
+                            <?php if($_adquiridosporusuarios[$id_adquiridosporusuarios]['estado']!="TERMINADO") :?>
                                 <button class="btn btn-primary" data-toggle="modal" data-target="#Configurar">Marcar como terminado</button>
                                 <button class="btn btn-primary" data-toggle="modal" data-target="#Configurar">Cancelar</button>
+                            <?php else: ?>
+                                  <p>Completado con éxito</p>
+                            <?php endif; ?>
                           </div>
                       </div>
                   </span>
