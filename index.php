@@ -1,6 +1,5 @@
 <?php
 
-//Editar respuestas*
 
 require('core/core.php');
 

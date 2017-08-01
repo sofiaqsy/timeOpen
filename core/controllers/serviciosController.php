@@ -6,7 +6,10 @@ if(isset($_SESSION['app_id'])) {
   $_serviciosporusuario=serviciosPorUsuarios($_SESSION['app_id']);
   require('core/models/class.Service.php');
   $servicios= new Service();
-  switch (isset($_GET['mode']) ? $_GET['mode'] : null) {
+
+  switch (isset($_GET['mode']) ? $_GET['mode'] : null)
+  {
+
     case 'add':
       if($_POST) {
         $servicios->Add();
@@ -14,6 +17,7 @@ if(isset($_SESSION['app_id'])) {
         include(HTML_DIR . 'servicios/add_servicio.php');
       }
     break;
+
     case 'edit':
       if($isset_id and array_key_exists($_GET['id'],$_services)) {
         if($_POST) {
@@ -26,6 +30,7 @@ if(isset($_SESSION['app_id'])) {
         header('location: ?view=servicios');
       }
     break;
+
     case 'delete':
       if($isset_id) {
         $servicios->Delete();
@@ -33,20 +38,23 @@ if(isset($_SESSION['app_id'])) {
         header('location: ?view=servicios');
       }
     break;
+
     case 'vendidos':
     $_vendidosporusuarios=VendidosPorUsuario($_SESSION['app_id']);
     include(HTML_DIR . 'servicios/all_vendidos.php');
     break;
+
     case 'completados':
     $_vendidosporusuarios=VendidosPorUsuario($_SESSION['app_id']);
     include(HTML_DIR . 'servicios/all_completados.php');
     break;
-    default:
 
+    default:
       include(HTML_DIR . 'servicios/all_servicios.php');
     break;
   }
-} else {
+}
+else {
   header('location: ?view=index');
 }
 

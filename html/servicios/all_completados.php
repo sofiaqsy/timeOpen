@@ -43,39 +43,39 @@
             <div class="row cajas table-striped">
               <div class="col-md-12">
                 <table class="table">
-                  <?php if(false!=$_vendidosporusuarios):$cnt=0;?>
+                  <?php if(false!=$_vendidosporusuarios):?>
                   <thead>
                     <tr>
                       <th>#</th>
                       <th>Curso</th>
                       <th>Titulo</th>
-                      <th>Nombres de Usuario</th>
+                      <th>Nombres de Comprador</th>
                       <th>Monto Acordado</th>
-                      <th>Fecha de venta</th>
-                      <th>Acciones</th>
+                      <th>Fecha de cierre</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <?php $cnt=0;foreach ($_vendidosporusuarios as $id_vendidosporusuarios => $value) : if($_vendidosporusuarios[$id_vendidosporusuarios]['estado']=="CONCLUIDO"):
+                  <?php $cnt=0;
+                  foreach ($_vendidosporusuarios as $id_vendidosporusuarios => $value):
+                    if($_vendidosporusuarios[$id_vendidosporusuarios]['estado']=='TERMINADO'):
                   $cnt++;
                   ?>
+                  <tbody>
                   <tr>
                   <th scope="row" id="idservice" value="<?php echo $id_vendidosporusuarios ?>"><?php echo $cnt; ?></th>
                   <td><?php echo $_cursosporusuarios[$_serviciosporusuario[$_vendidosporusuarios[$id_vendidosporusuarios]['id_service']]['id_curso']]['nombre_corto']; ?></td>
                   <td><?php echo Cortar($_serviciosporusuario[$_vendidosporusuarios[$id_vendidosporusuarios]['id_service']]['titulo'],20) ?></td>
-                  <td><?php echo $_users[$_vendidosporusuarios[$id_vendidosporusuarios]['id_user']]['name']." ".$_users[$_vendidosporusuarios[$id_vendidosporusuarios]['id_user']]['last_name'] ?></td>
+                  <td><?php echo $_users[$_vendidosporusuarios[$id_vendidosporusuarios]['id_user_comprador']]['name']." ".$_users[$_vendidosporusuarios[$id_vendidosporusuarios]['id_user_comprador']]['last_name'] ?></td>
                   <td><?php echo $_vendidosporusuarios[$id_vendidosporusuarios]['precio_total'] ?></td>
                   <td><?php echo Cortar($_vendidosporusuarios[$id_vendidosporusuarios]['fecha'],10) ?></td>
                   <td>
-                  <a class="teal-text" style="padding:5px 5px;" href="?view=servicios&mode=edit&id=<?php echo $id_serviciosporusuario ?>"><i class="glyphicon glyphicon-pencil"></i></a>
-                  <a class="teal-text" onclick="DeleteItem('¿Está seguro de eliminar este servicio?','?view=servicios&mode=delete&id=<?php echo $id_serviciosporusuario ?>')" ><i class="glyphicon glyphicon-remove"></i></a>
-                  </td>
+
                   </tr>
-                <?php endif; endforeach;else: ?>
+                <?php endif;endforeach;else: ?>
                   <div class="alert alert-dismissible alert-success">
-                    <strong>Vacio </strong> Aun no se has completado un servicio
+                    <strong>Vacio</strong> Aun no se has completado ningun servicio
                   </div>
                 <?php endif; ?>
+
                   </tbody>
                 </table>
               </div>

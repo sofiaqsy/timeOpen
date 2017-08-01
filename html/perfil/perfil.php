@@ -99,7 +99,7 @@
                 <div class="col-xs-12  text-center">
 
                         <button class="btn btn-primary" data-toggle="modal" data-target="#Configurar"><span class="glyphicon glyphicon-wrench"></span>Configurar</button>
-                        <a href="?view=perfil&mode=edit&id=<?php echo $_users[$id_usuario]['iduser']; ?>"><button class="btn btn-primary"><span class="fa fa-plus-circle"></span> Editar Perfil </button></a>
+                        <a href="?view=perfil&mode=edit&id=<?php echo $id_usuario; ?>"><button class="btn btn-primary"><span class="fa fa-plus-circle"></span> Editar Perfil </button></a>
                 </div>
                 <?php endif;?>
         	 </div>
@@ -123,8 +123,8 @@
                       <div class="navbar-right" style="margin-right :10px;">
                           <div class="dropdown">
                             <?php if($_adquiridosporusuarios[$id_adquiridosporusuarios]['estado']!="TERMINADO") :?>
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#Configurar">Marcar como terminado</button>
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#Configurar">Cancelar</button>
+                                <a onclick="DeleteItem('¿Está seguro de que marcar como terminado?','?view=perfil&mode=terminado&id=<?php echo $id_usuario?>&idv=<?php echo $id_adquiridosporusuarios?>&ids=<?php echo $_adquiridosporusuarios[$id_adquiridosporusuarios]['id_service']?>')"><button class="btn btn-primary" >Marcar como terminado</button></a>
+                                <a onclick="DeleteItem('¿Está seguro de cancelar este servicio?','?view=perfil&mode=cancel&id=<?php echo $id_usuario?>&idv=<?php echo $id_adquiridosporusuarios?>&ids=<?php echo $_adquiridosporusuarios[$id_adquiridosporusuarios]['id_service']?>')"><button class="btn btn-primary" >Cancelar</button></a>
                             <?php else: ?>
                                   <p>Completado con éxito</p>
                             <?php endif; ?>

@@ -17,7 +17,7 @@ define('DB_NAME','dbsistutorias');
 define('HTML_DIR','html/');
 define('APP_TITLE','Opentime');
 define('APP_COPY','Copyright &copy; ' . date('Y',time()) . ' Ocrend Software.');
-define('APP_URL','http://timeopen.com/'); //Adaptado a mi nuevo entorno con Ubuntu
+define('APP_URL','http://timeopen.com/'); 
 define('CARP_IMG_SERV','views/app/images/servicios/');
 define('CARP_IMG_PERF','views/app/images/users/');
 

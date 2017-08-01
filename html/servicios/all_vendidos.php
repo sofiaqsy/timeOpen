@@ -57,6 +57,7 @@
                   </thead>
                   <?php $cnt=0;
                   foreach ($_vendidosporusuarios as $id_vendidosporusuarios => $value):
+                    if($_vendidosporusuarios[$id_vendidosporusuarios]['estado']=="PROCESO"):
                   $cnt++;
                   ?>
                   <tbody>
@@ -68,13 +69,13 @@
                   <td><?php echo $_vendidosporusuarios[$id_vendidosporusuarios]['precio_total'] ?></td>
                   <td><?php echo Cortar($_vendidosporusuarios[$id_vendidosporusuarios]['fecha'],10) ?></td>
                   <td>
-                  <a class="teal-text" style="padding:5px 5px;" href="?view=servicios&mode=edit&id=<?php echo $id_serviciosporusuario ?>"><i class="glyphicon glyphicon-pencil"></i></a>
+                  <a class="teal-text" style="padding:5px 5px;" href="?view=servicios&mode=edit&id=<?php echo $id_serviciosporusuario ?>"><i class="glyphicon glyphicon-ok"></i></a>
                   <a class="teal-text" onclick="DeleteItem('¿Está seguro de eliminar este servicio?','?view=servicios&mode=delete&id=<?php echo $id_serviciosporusuario ?>')" ><i class="glyphicon glyphicon-remove"></i></a>
                   </td>
                   </tr>
-                <?php endforeach;else: ?>
+                <?php endif;endforeach;else: ?>
                   <div class="alert alert-dismissible alert-success">
-                    <strong>Vacio</strong> Aun no se ha realizado ninguna
+                    <strong>Vacio</strong> Aun no se ha realizado ninguna venta
                   </div>
                 <?php endif; ?>
 
