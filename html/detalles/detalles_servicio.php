@@ -2,75 +2,249 @@
 <!-- encabezado, llama a html index/overall/header.php-->
 <?php include(HTML_DIR . 'overall/header.php'); ?>
 <!-- comienzo del cuerpo-->
-<body>
-   <section class="engine"><a rel="nofollow" href="#"><?php echo APP_TITLE ?></a></section>
-   <!-- cuerpo, llama a html index/overall/topnav.php-->
+
 <?php include(HTML_DIR . '/overall/topnav.php'); ?>
-  <section class="mbr-section mbr-after-navbar">
-<div class="mbr-section__container container mbr-section__container--isolated">
+<link rel="stylesheet" href="views/style/static.css" type="text/css" />
 
-  <?php
-    if(isset($_GET['success'])) {
-      echo '<div class="alert alert-dismissible alert-success">
-        <strong>Activado!</strong> tu usuario ha sido activado correctamente.
-      </div>';
-    }
-
-    if(isset($_GET['error'])) {
-      echo '<div class="alert alert-dismissible alert-danger">
-        <strong>Error!</strong></strong> no se ha podido activar tu usuario.
-      </div>';
-    }
-    ?>
-  <div class="row container">
-      <?php
-          if(isset($_SESSION['app_id']) && $_users[$_SESSION['app_id']]['idtype_user']>1) :
-            echo '
-            <div class="pull-right">
-              <div class="mbr-navbar__column">
-                <a class="btn btn-primary" href="?view=servicios">Gestionar servicios</a>
-              </div>
-            </div>
-            ';
-          endif;
-      ?>
-      <ol class="breadcrumb">
-        <li><a href="?view=index"><i class="glyphicon glyphicon-home"></i> Inicio</a></li>
-      </ol>
+<div class="row affix-row " style="padding-top: 99px;" >
+    <div class="col-sm-3 col-md-2 affix-sidebar">
+		<div class="sidebar-nav">
+  <div class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <span class="visible-xs navbar-brand">Sidebar menu</span>
+    </div>
+    <div class="navbar-collapse collapse sidebar-navbar-collapse">
+      <ul class="nav navbar-nav" id="sidenav01">
+        <li >
+          <a href="#" data-toggle="collapse" data-target="#toggleDemo0" data-parent="#sidenav01" class="collapsed">
+          <h4>
+          Control Administrador
+          </h4>
+          </a>
+        </li>
+        <li><a href="#"><span class="glyphicon glyphicon-lock"></span> Normalmenu</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-calendar"></span> WithBadges <span class="badge pull-right">42</span></a></li>
+        <li><a href=""><span class="glyphicon glyphicon-cog"></span> PreferencesMenu</a></li>
+      </ul>
+      </div><!--/.nav-collapse -->
+    </div>
   </div>
-	<div class="container" style="padding-left:0px">
-		<div class="card">
-			<div class="container-fliud">
-				<div class="wrapper row">
-					<div class="preview col-md-6">
+	</div>
 
-						<div class="preview-pic tab-content">
-              <center><img src="<?php echo CARP_IMG_SERV.$_services[$id_services]['imagen'] ?>" style=""></center>
-						</div>
+      <div class="col-sm-9 col-md-10 affix-content" >
+             <div class="fluid-list cnt-curso-m">
+               <div class="fluid-list list-num-c custom-biialab">
+                 <div class="row">
+                      <div class="col-md-4 cntContador" style="margin-top: 7px;">
+                        <article class="fluid-list lead-nota">
+                            <a href="?view=detalles&id=<?php echo $id_services ?>">
+                              <span class="spany">MATE</span>
+                              <br>
+                                <div class="fluid-list cnt-nota-slider">
 
-					</div>
-					<div class="details col-md-6">
-            <div id="_AJAX_NOT_"></div>
-						<h3 class="product-title" id="titulo"><?php echo $_services[$id_services]['titulo'] ?></h3>
-						<div class="rating">
-							<span class="review-no">41 reviews</span>
-						</div>
-						<p class="product-description"><?php echo $_services[$id_services]['descripcion'] ?></p>
-						<h4 class="price">Precio: <span>S/ <?php echo $_services[$id_services]['price'] ?></span></h4>
-						<p class="vote"><strong>Detalles de lugar de asesoria</strong> <?php echo $_services[$id_services]['lugar'] ?></p>
-            <p class="vote"><?php echo $_services[$id_services]['detalles'] ?></p>
-            <div style="visibility: hidden" id="id_ser"><?php echo $_services[$id_services]['idservice'] ?></div>
-            <div class="action">
-							<button class="btn btn-primary" type="button"  <?php if(!isset($_SESSION['app_id'])){echo'data-toggle="modal" data-target="#Login"';}else{echo'onclick="goNot();"';}?> >Obtener</button>
-						</div>
-					</div>
-				</div>
-			</div>
+                                    <h4>Mi corto titulo</h4>
+                                       <p>es ta es mi descripcion corta okey?</p>
+                                </div>
+                                  <figure>
+                                   <center><img src="<?php echo CARP_IMG_SERV.'defaul.jpg' ?>" style="max-height:150px; max-width:300px;"></center>
+                                 </figure>
+                               <div class="fluid-list rated-s">
+                                   <div class="star-ratings-sprite">
+                                       <span style="width:90%" class="star-ratings-sprite-rating"></span>
+                                   </div>
+                                   <span>S/40?><em>(188)</em></span>
+                               </div>
+                            </a>
+                            <div class="space-ten"></div>
+                              <div class="btn-ground" >
+                                <button class="btn btn-primary col-md-12" type="button"  <?php if(!isset($_SESSION['app_id'])){echo'data-toggle="modal" data-target="#Login"';}else{echo'onclick="goNot();"';}?> >Obtener</button>
+
+                              </div>
+                            <div class="space-ten"></div>
+
+                        </article>
+                     </div>
+                     <div class="col-md-4 cntContador" style="margin-top: 7px;">
+                       <article class="fluid-list lead-nota">
+                           <a href="?view=detalles&id=<?php echo $id_services ?>">
+                             <span class="spany">MATE</span>
+                             <br>
+                               <div class="fluid-list cnt-nota-slider">
+
+                                   <h4>Mi corto titulo</h4>
+                                      <p>es ta es mi descripcion corta okey?</p>
+                               </div>
+                                 <figure>
+                                  <center><img src="<?php echo CARP_IMG_SERV.'defaul.jpg' ?>" style="max-height:150px; max-width:300px;"></center>
+                                </figure>
+                              <div class="fluid-list rated-s">
+                                  <div class="star-ratings-sprite">
+                                      <span style="width:90%" class="star-ratings-sprite-rating"></span>
+                                  </div>
+                                  <span>S/40?><em>(188)</em></span>
+                              </div>
+                           </a>
+                           <div class="space-ten"></div>
+                             <div class="btn-ground" >
+                               <button class="btn btn-primary col-md-12" type="button"  <?php if(!isset($_SESSION['app_id'])){echo'data-toggle="modal" data-target="#Login"';}else{echo'onclick="goNot();"';}?> >Obtener</button>
+
+                             </div>
+                           <div class="space-ten"></div>
+
+                       </article>
+                    </div>  <div class="col-md-4 cntContador" style="margin-top: 7px;">
+                        <article class="fluid-list lead-nota">
+                            <a href="?view=detalles&id=<?php echo $id_services ?>">
+                              <span class="spany">MATE</span>
+                              <br>
+                                <div class="fluid-list cnt-nota-slider">
+
+                                    <h4>Mi corto titulo</h4>
+                                       <p>es ta es mi descripcion corta okey?</p>
+                                </div>
+                                  <figure>
+                                   <center><img src="<?php echo CARP_IMG_SERV.'defaul.jpg' ?>" style="max-height:150px; max-width:300px;"></center>
+                                 </figure>
+                               <div class="fluid-list rated-s">
+                                   <div class="star-ratings-sprite">
+                                       <span style="width:90%" class="star-ratings-sprite-rating"></span>
+                                   </div>
+                                   <span>S/40?><em>(188)</em></span>
+                               </div>
+                            </a>
+                            <div class="space-ten"></div>
+                              <div class="btn-ground" >
+                                <button class="btn btn-primary col-md-12" type="button"  <?php if(!isset($_SESSION['app_id'])){echo'data-toggle="modal" data-target="#Login"';}else{echo'onclick="goNot();"';}?> >Obtener</button>
+
+                              </div>
+                            <div class="space-ten"></div>
+
+                        </article>
+                     </div>  <div class="col-md-4 cntContador" style="margin-top: 7px;">
+                         <article class="fluid-list lead-nota">
+                             <a href="?view=detalles&id=<?php echo $id_services ?>">
+                               <span class="spany">MATE</span>
+                               <br>
+                                 <div class="fluid-list cnt-nota-slider">
+
+                                     <h4>Mi corto titulo</h4>
+                                        <p>es ta es mi descripcion corta okey?</p>
+                                 </div>
+                                   <figure>
+                                    <center><img src="<?php echo CARP_IMG_SERV.'defaul.jpg' ?>" style="max-height:150px; max-width:300px;"></center>
+                                  </figure>
+                                <div class="fluid-list rated-s">
+                                    <div class="star-ratings-sprite">
+                                        <span style="width:90%" class="star-ratings-sprite-rating"></span>
+                                    </div>
+                                    <span>S/40?><em>(188)</em></span>
+                                </div>
+                             </a>
+                             <div class="space-ten"></div>
+                               <div class="btn-ground" >
+                                 <button class="btn btn-primary col-md-12" type="button"  <?php if(!isset($_SESSION['app_id'])){echo'data-toggle="modal" data-target="#Login"';}else{echo'onclick="goNot();"';}?> >Obtener</button>
+
+                               </div>
+                             <div class="space-ten"></div>
+
+                         </article>
+                      </div>  <div class="col-md-4 cntContador" style="margin-top: 7px;">
+                          <article class="fluid-list lead-nota">
+                              <a href="?view=detalles&id=<?php echo $id_services ?>">
+                                <span class="spany">MATE</span>
+                                <br>
+                                  <div class="fluid-list cnt-nota-slider">
+
+                                      <h4>Mi corto titulo</h4>
+                                         <p>es ta es mi descripcion corta okey?</p>
+                                  </div>
+                                    <figure>
+                                     <center><img src="<?php echo CARP_IMG_SERV.'defaul.jpg' ?>" style="max-height:150px; max-width:300px;"></center>
+                                   </figure>
+                                 <div class="fluid-list rated-s">
+                                     <div class="star-ratings-sprite">
+                                         <span style="width:90%" class="star-ratings-sprite-rating"></span>
+                                     </div>
+                                     <span>S/40?><em>(188)</em></span>
+                                 </div>
+                              </a>
+                              <div class="space-ten"></div>
+                                <div class="btn-ground" >
+                                  <button class="btn btn-primary col-md-12" type="button"  <?php if(!isset($_SESSION['app_id'])){echo'data-toggle="modal" data-target="#Login"';}else{echo'onclick="goNot();"';}?> >Obtener</button>
+
+                                </div>
+                              <div class="space-ten"></div>
+
+                          </article>
+                       </div>  <div class="col-md-4 cntContador" style="margin-top: 7px;">
+                           <article class="fluid-list lead-nota">
+                               <a href="?view=detalles&id=<?php echo $id_services ?>">
+                                 <span class="spany">MATE</span>
+                                 <br>
+                                   <div class="fluid-list cnt-nota-slider">
+
+                                       <h4>Mi corto titulo</h4>
+                                          <p>es ta es mi descripcion corta okey?</p>
+                                   </div>
+                                     <figure>
+                                      <center><img src="<?php echo CARP_IMG_SERV.'defaul.jpg' ?>" style="max-height:150px; max-width:300px;"></center>
+                                    </figure>
+                                  <div class="fluid-list rated-s">
+                                      <div class="star-ratings-sprite">
+                                          <span style="width:90%" class="star-ratings-sprite-rating"></span>
+                                      </div>
+                                      <span>S/40?><em>(188)</em></span>
+                                  </div>
+                               </a>
+                               <div class="space-ten"></div>
+                                 <div class="btn-ground" >
+                                   <button class="btn btn-primary col-md-12" type="button"  <?php if(!isset($_SESSION['app_id'])){echo'data-toggle="modal" data-target="#Login"';}else{echo'onclick="goNot();"';}?> >Obtener</button>
+
+                                 </div>
+                               <div class="space-ten"></div>
+
+                           </article>
+                        </div>  <div class="col-md-4 cntContador" style="margin-top: 7px;">
+                            <article class="fluid-list lead-nota">
+                                <a href="?view=detalles&id=<?php echo $id_services ?>">
+                                  <span class="spany">MATE</span>
+                                  <br>
+                                    <div class="fluid-list cnt-nota-slider">
+
+                                        <h4>Mi corto titulo</h4>
+                                           <p>es ta es mi descripcion corta okey?</p>
+                                    </div>
+                                      <figure>
+                                       <center><img src="<?php echo CARP_IMG_SERV.'defaul.jpg' ?>" style="max-height:150px; max-width:300px;"></center>
+                                     </figure>
+                                   <div class="fluid-list rated-s">
+                                       <div class="star-ratings-sprite">
+                                           <span style="width:90%" class="star-ratings-sprite-rating"></span>
+                                       </div>
+                                       <span>S/40?><em>(188)</em></span>
+                                   </div>
+                                </a>
+                                <div class="space-ten"></div>
+                                  <div class="btn-ground" >
+                                    <button class="btn btn-primary col-md-12" type="button"  <?php if(!isset($_SESSION['app_id'])){echo'data-toggle="modal" data-target="#Login"';}else{echo'onclick="goNot();"';}?> >Obtener</button>
+
+                                  </div>
+                                <div class="space-ten"></div>
+
+                            </article>
+                         </div>
+                 </div>
+          </div>
+
 		</div>
 	</div>
-</section>
-
-
+</div
 
 <!-- fin de la  seccion cabeceza 2-->
 <!-- footer, llama a html index/overall/footer.php-->
