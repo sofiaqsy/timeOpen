@@ -35,7 +35,7 @@
   echo'data-toggle="modal" data-target="#Login"';
 } else {
   echo'onclick="goNot();"';
-}?> >Obtenedddddddddddddddr</button>
+}?> >Obtenedddddddddddddhddr</button>
 
                                 </div>
                               <div class="space-ten"></div>
