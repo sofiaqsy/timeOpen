@@ -32,11 +32,10 @@
                               <div class="space-ten"></div>
                                 <div class="btn-ground" >
                                   <button class="btn btn-primary col-md-12" type="button"  <?php if (!isset($_SESSION['app_id'])) {
-  echo'data-toggle="modal" data-target="#Login"';
-} else {
-  echo'onclick="goNot();"';
-}?> >Obtenedddddddddddddhddr</button>
-
+                                    echo'data-toggle="modal" data-target="#Login"';
+                                  } else {
+                                    echo'onclick="goNot();"';
+                                  }?> >Obtener</button>
                                 </div>
                               <div class="space-ten"></div>
 

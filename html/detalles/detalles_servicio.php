@@ -2,7 +2,7 @@
 <?php include(HTML_DIR . '/overall/topnav.php'); ?>
 <?php include(HTML_DIR . '/overall/nav-vertical.php'); ?>
 <div class="col-sm-9  affix-content" style="">
-  <div class="container" style="padding-left:0px; padding-right:0px">
+  <div class="container" style="padding-left:0px; padding-right:0px ">
 		<div class="card">
 			<div class="container-fliud">
 				<div class="wrapper row">
