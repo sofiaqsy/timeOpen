@@ -3,7 +3,6 @@ function goNot() {
     id_ser=document.getElementById('id_ser').innerHTML;
     titulo=document.getElementById('titulo').innerHTML;
 
-
       form = '&titulo=' + titulo + '&id_ser=' + id_ser;
       connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
                 connect.onreadystatechange = function() {
