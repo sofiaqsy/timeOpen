@@ -35,12 +35,30 @@ class Service{
             $this->horas=$this->db->real_escape_string($_POST['horas']);
             $this->descripcion=$this->db->real_escape_string($_POST['descripcion']);
             $this->detalles=$this->db->real_escape_string($_POST['detalles']);
-            $this->imagen=$this->db->real_escape_string($_FILES['imagen']['name']);
             $this->situacion=$this->db->real_escape_string('A');
             $this->cantidad_alumnos=$this->db->real_escape_string($_POST['cantidad_alumnos']);
             $this->id_curso=$this->db->real_escape_string($_POST['curso']);
             $this->fecha_pub=$this->db->real_escape_string(date("Y/m/d H:i:s"));
           }
+
+          if(empty($_FILES['imagen']['name'])){
+            $this->imagen='';
+          } else {
+            if(($_FILES["imagen"]["type"] == "image/gif") ||
+            ($_FILES["imagen"]["type"] == "image/jpeg") ||
+            ($_FILES["imagen"]["type"] == "image/jpg") ||
+            ($_FILES["imagen"]["type"] == "image/png") ){
+              if(($_FILES['imagen']['size'] > 200000)){
+                //$ext = str_replace('image/','.',$this->db->real_escape_string($_FILES['imagen']['type']));
+                //$this->imagen='Service_'.$this->titulo.'_'.$this->id_usuario.$ext;
+              //} else {
+                throw new Exception(3);
+              }
+            } else {
+              throw new Exception(2);
+            }
+          }
+
         } catch(Exception $error) {
           header('location: '.$url .$error->getMessage());
           exit;
@@ -51,18 +69,24 @@ class Service{
 
   public function Add() {
     $this->Errors('?view=servicios&mode=add&error=');
+    $this->db->query("INSERT INTO service(titulo,price,horas,lugar,descripcion,detalles,situacion,cantidad_alumnos,id_usuario,id_curso,fecha_pub)
+     VALUES ('$this->titulo','$this->price','$this->horas','$this->lugar','$this->descripcion','$this->detalles','$this->situacion','$this->cantidad_alumnos','$this->id_usuario','$this->id_curso','$this->fecha_pub');");
+    $sql = $this->db->query("SELECT idservice FROM service WHERE titulo='$this->titulo' AND id_usuario='$this->id_usuario';");
+
+    $fila = $this->db->recorrer($sql);
+    $this->idservice = $fila[0];
+
     if(!empty($this->imagen))
     {
       include('core/bin/functions/subir_img.php');
-      subir_img(CARP_IMG_SERV);
+      $ext = str_replace('image/','.',$this->db->real_escape_string($_FILES['imagen']['type']));
+      $this->imagen='Service_'.$this->idservice.'_'.$this->id_usuario.$ext;
+      subir_img(CARP_IMG_SERV,$this->imagen);
     }else{
       $this->imagen='default.jpg';
     }
-    $this->db->query("INSERT INTO service(titulo,price,horas,lugar,descripcion,detalles,imagen,situacion,cantidad_alumnos,id_usuario,id_curso,fecha_pub)
-     VALUES ('$this->titulo','$this->price','$this->horas','$this->lugar','$this->descripcion','$this->detalles','$this->imagen','$this->situacion','$this->cantidad_alumnos','$this->id_usuario','$this->id_curso','$this->fecha_pub');");
+    $this->db->query("UPDATE service SET imagen=$this->imagen  WHERE idservice ='$this->idservice';");
     header('location: ?view=servicios&mode=add&success=true');
-
-
   }
 
   public function Edit() {

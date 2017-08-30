@@ -33,9 +33,13 @@
               echo '<div class="alert alert-dismissible alert-danger">
                 <strong>Error!</strong></strong> todos los campos deben estar llenos.
               </div>';
-            } else {
+            } else if ($_GET['error'] == 2){
               echo '<div class="alert alert-dismissible alert-danger">
-                <strong>Error!</strong></strong> debe existir un curso asociado
+                <strong>Error!</strong></strong> No es una imagen.
+              </div>';
+            } else if ($_GET['error'] == 3){
+              echo '<div class="alert alert-dismissible alert-danger">
+                <strong>Error!</strong></strong> Es grande la imagen que quiere subir.
               </div>';
             }
           }

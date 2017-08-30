@@ -22,6 +22,7 @@
   <form class="form-horizontal" action="?view=servicios&mode=add" method="post" enctype="multipart/form-data">
     <fieldset>
       <legend>Servicio nuevo</legend>
+      
       <?php
           if(isset($_GET['success'])) {
             echo '<div class="alert alert-dismissible alert-success">
@@ -33,9 +34,13 @@
               echo '<div class="alert alert-dismissible alert-danger">
                 <strong>Error!</strong></strong> todos los campos deben estar llenos.
               </div>';
-            } else {
+            } else if ($_GET['error'] == 2){
               echo '<div class="alert alert-dismissible alert-danger">
-                <strong>Error!</strong></strong> debe existir una categoría para asociar al foro.
+                <strong>Error!</strong></strong> No es una imagen.
+              </div>';
+            } else if ($_GET['error'] == 3){
+              echo '<div class="alert alert-dismissible alert-danger">
+                <strong>Error!</strong></strong> Es grande la imagen que quiere subir.
               </div>';
             }
           }
