@@ -26,7 +26,8 @@
   <div class="form-group" id="divarea">
     <label  class="col-sm-2 control-label">Area</label>
     <div class="col-sm-10">
-      <select id="area" class="form-control" name="area">
+
+      <select id="area" class="form-control " >
         <option >Elige el area</option>
         <?php foreach ($_areas as $id_area => $value):
           if( $id_area==$_users[$id_usuario]['id_area']): ?>
@@ -40,9 +41,7 @@
 </div>
   <div class="form-group" id="divcategoria">
     <label for="inputPassword3" class="col-sm-2 control-label">Categoria de cursos</label>
-    <div class="col-sm-10">
-      <select id="categoria" class="form-control" name="categoria">
-      </select>
+    <div class="col-sm-10" id="categoria" name="categoria">
     </div>
   </div>
   <div id=anuncio></div>
@@ -55,4 +54,4 @@
        </div>
      </div>
    </div>
- </div>
+</div>

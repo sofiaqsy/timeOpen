@@ -20,9 +20,7 @@
   <link rel="stylesheet" href="views/style/mainproducto.css" type="text/css">
   <link rel="stylesheet" href="views/style/estilos.css" type="text/css" />
   <link rel="stylesheet" href="views/style/general.css" type="text/css" />
-
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://zellerda.github.io/Tokenize2/assets/tokenize2.min.css" type="text/css" />
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
 

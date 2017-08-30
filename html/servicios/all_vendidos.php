@@ -69,8 +69,9 @@
                   <td><?php echo $_vendidosporusuarios[$id_vendidosporusuarios]['precio_total'] ?></td>
                   <td><?php echo Cortar($_vendidosporusuarios[$id_vendidosporusuarios]['fecha'],10) ?></td>
                   <td>
-                  <a class="teal-text" style="padding:5px 5px;" href="?view=servicios&mode=edit&id=<?php echo $id_serviciosporusuario ?>"><i class="glyphicon glyphicon-ok"></i></a>
-                  <a class="teal-text" onclick="DeleteItem('¿Está seguro de eliminar este servicio?','?view=servicios&mode=delete&id=<?php echo $id_serviciosporusuario ?>')" ><i class="glyphicon glyphicon-remove"></i></a>
+                  <a class="teal-text" title="Confirmar" style="padding:5px 5px;" href="?view=servicios&mode=edit&id=<?php echo $id_serviciosporusuario ?>"><i class="glyphicon glyphicon-ok"></i></a>
+                  <a class="teal-text"  title="No podre realizar esta tutoria" style="padding:5px 5px;" onclick="DeleteItem('¿Está seguro de eliminar este servicio?','?view=servicios&mode=delete&id=<?php echo $id_serviciosporusuario ?>')" ><i class="glyphicon glyphicon-remove"></i></a>
+                  <a class="teal-text" title="Ver detalles"  style="padding:5px 5px;" onclick="DeleteItem('¿Está seguro de eliminar este servicio?','?view=servicios&mode=delete&id=<?php echo $id_serviciosporusuario ?>')" ><i class="glyphicon glyphicon-eye-open"></i></a>
                   </td>
                   </tr>
                 <?php endif;endforeach;else: ?>
