@@ -54,6 +54,7 @@
                 <?php endforeach;?>
                 </ul>
             </div>
+            <div id="_AJAX_NOT_"></div>
           </li>
         </ul>
       </div><!--/.nav-collapse -->

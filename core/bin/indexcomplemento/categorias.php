@@ -1,6 +1,9 @@
 <?php
+echo "<script> $(document).ready(function(){  $('.tokenize-demo').tokenize2(); });</script>";
+
 $_categorias=Categorias($_GET["idarea"]);
 $_cat_user=Categorias_users($_SESSION['app_id']);
+echo'<select  class="tokenize-demo form-control"  multiple>';
 if(false!=$_categorias){
    echo '<option >Elige la categoria</option>';
    foreach ($_categorias as $id_categoria => $value)
@@ -11,17 +14,12 @@ if(false!=$_categorias){
      }
      else
      {
-       echo '<option value="'. $_categorias[$id_categoria]["idcategoria_cursos"] .'"> '.$_categorias[$id_categoria]["nombre"].'</option>';
+       echo '<option value="'. $_categorias[$id_categoria]["idcategoria_cursos"] .'" > '.$_categorias[$id_categoria]["nombre"].'</option>';
 
      }
    }
 }else{
   echo '<option> No hay categorias en esta area</option>';
 }
-
-
-
-
-
-
+echo "</select><script> $(document).ready(function(){  $('.tokenize-demo').tokenize2(); });</script>";
 ?>

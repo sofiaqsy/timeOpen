@@ -71,8 +71,9 @@
                   <td><?php echo $_serviciosporusuario[$id_serviciosporusuario]['cantidad_alumnos'] ?></td>
                   <td><?php echo $_serviciosporusuario[$id_serviciosporusuario]['fecha_cad'] ?></td>
                   <td>
-                  <a class="teal-text" style="padding:5px 5px;" href="?view=servicios&mode=edit&id=<?php echo $id_serviciosporusuario ?>"><i class="glyphicon glyphicon-pencil"></i></a>
-                  <a class="teal-text" onclick="DeleteItem('¿Está seguro de eliminar este servicio?','?view=servicios&mode=delete&id=<?php echo $id_serviciosporusuario ?>')" ><i class="glyphicon glyphicon-remove"></i></a>
+                  <a class="teal-text"  title="Editar" style="padding:5px 5px;" href="?view=servicios&mode=edit&id=<?php echo $id_serviciosporusuario ?>"><i class="glyphicon glyphicon-pencil"></i></a>
+                  <a class="teal-text" title="Eliminar"  style="padding:5px 5px;" onclick="DeleteItem('¿Está seguro de eliminar este servicio?','?view=servicios&mode=delete&id=<?php echo $id_serviciosporusuario ?>')" ><i class="glyphicon glyphicon-remove"></i></a>
+                  <a class="teal-text" title="Ver detalles"  style="padding:5px 5px;" onclick="DeleteItem('¿Está seguro de eliminar este servicio?','?view=servicios&mode=delete&id=<?php echo $id_serviciosporusuario ?>')" ><i class="glyphicon glyphicon-eye-open"></i></a>
                   </td>
                   </tr>
                 <?php endif; endforeach;else: ?>

@@ -165,7 +165,6 @@ $(document).ready(function(){
   if(id==2){
     $('#divarea').show();
     $('#divcategoria').show();
-
   }else if(id==1){
          $('#divarea').hide();
          $('#divcategoria').hide();
@@ -179,7 +178,6 @@ $(document).ready(function(){
            if(id==2){
              $('#divarea').show();
              $('#divcategoria').show();
-
            }else if(id==1){
              			$('#divarea').hide();
                   $('#divcategoria').hide();
@@ -189,6 +187,7 @@ $(document).ready(function(){
           $('#area').change(function() {
             var id=$('#area').val();
             $('#categoria').load('?view=datos&mode=combo&idarea='+id);
+            $('.tokenize-demo').tokenize2();
 
           });
         });
